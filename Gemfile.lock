@@ -230,7 +230,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
-<<<<<<< HEAD
+
   x86_64-darwin-20
 =======
   x86_64-linux
