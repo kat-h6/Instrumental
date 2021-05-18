@@ -1,0 +1,15 @@
+ <h3>List an instrument for rent</h3>
+
+ <%= simple_form_for @instrument do |f| %>
+          <%= f.input :name, placeholder: 'Violin' %>
+          <%= f.input :model %>
+          <%= f.input :category %>
+          <%= f.input :details %>
+          <%= f.input :year%>
+          <%= f.input :rate %>
+          <%= f.input :photo%>
+
+         <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+
+   
