@@ -1,4 +1,13 @@
 class InstrumentsController < ApplicationController
+  
+  def index
+    @instruments = Instrument.all
+  end
+
+  def show
+    set_instrument
+  end
+  
 	def new
 		@instrument = Instrument.new
 	end
@@ -11,11 +20,16 @@ class InstrumentsController < ApplicationController
 			render :new
 		end
 	end
+  
+  private
 
-  private 
+  def set_instrument
+    @instrument = Instrument.find(params[:id])
+  end
 
   def instrument_params
-  	params.require(:instrument).permit(:name, :model, :details, :year, :rate)
+  	params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category)
   end
 end
+
 
