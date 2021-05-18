@@ -11,18 +11,24 @@
 # create 5 instrument instances
 
 require 'faker'
+Instrument.destroy_all
+User.destroy_all
+
+User.create(email: "kathy@gmail.com", password: "password")
+User.create(email: "tavis@gmail.com", password: "password")
+User.create(email: "Sepideh@gmail.com", password: "password")
+User.create(email: "chris@gmail.com", password: "password")
 
 puts 'Creating 15 instruments...'
-15.times do |i|
+15.times do
   instrument = Instrument.create!(
     name: Faker::Games::Zelda.character,
-    model: Faker::Company.catch_phrase,
+    model: Faker::Company.duns_number,
     category: Faker::Music.instrument,
-    details: Faker::Company.catch_phrase,
-    year: rand(1950..2021)
+    details: Faker::Quote.famous_last_words,
+    year: rand(1950..2021),
     rate: (rand(0.1) * 10).round(2),
-    owner_id: User.find(id = rand(1..3))
+    owner: User.all.sample
   )
-  puts "#{i + 1}. #{instrument.name}"
 end
 puts 'Finished!'
