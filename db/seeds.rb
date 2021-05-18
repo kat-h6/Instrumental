@@ -20,6 +20,7 @@ User.create(email: "Sepideh@gmail.com", password: "password")
 User.create(email: "chris@gmail.com", password: "password")
 
 puts 'Creating 15 instruments...'
+puts "added a change"
 15.times do
   instrument = Instrument.create!(
     name: Faker::Games::Zelda.character,
