@@ -4,7 +4,7 @@
   <div>
     <p>Category: <%= @instrument.category %></p>
     <p>Year: <%= @instrument.year %></p>
-    <p>Rate: <%= @instrument.rate %>/per day</p>
+    <p>Rate: €<%= @instrument.rate %>/day</p>
     <p>Contact: <%= @owner %></p>
     <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success' %>
   </div>
