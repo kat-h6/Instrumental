@@ -1,7 +1,7 @@
 <h1 style="text-align:center">Instruments</h1>
 <div class="container">
   <% @instruments.each do |instrument| %>
-    <h3><%= instrument.name %> <%= instrument.model %></h3>
+    <h3><%= link_to instrument.name, instrument_path(instrument) %> <%= instrument.model %></h3>
     <p><%= instrument.rate %></p>
   <% end %>
 </div>

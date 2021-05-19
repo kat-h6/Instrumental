@@ -1,13 +1,14 @@
 class InstrumentsController < ApplicationController
-  
+
   def index
     @instruments = Instrument.all
   end
 
   def show
     set_instrument
+    @owner = @instrument.owner
   end
-  
+
 	def new
 		@instrument = Instrument.new
 	end
@@ -19,8 +20,8 @@ class InstrumentsController < ApplicationController
 		else
 			render :new
 		end
-	end
-  
+  end
+
   private
 
   def set_instrument
