@@ -1,11 +1,10 @@
 <h1 style="text-align:center"><%= @instrument.name %> <%= @instrument.model %></h1>
-<div class="container">
-  <ul>
-    <img src="https://source.unsplash.com/collection/4664641/400x400">
-    <li>Type: <%= @instrument.category %></li>
-    <li>Year: <%= @instrument.year %></li>
-    <li>Rate: <%= @instrument.rate %>/per day</li>
-    <li>Contact: <%= @owner.name %></li>
-  </ul>
-
+<div class="container d-flex">
+  <img src="https://source.unsplash.com/collection/4664641/400x400">
+  <div>
+    <p>Type: <%= @instrument.category %></p>
+    <p>Year: <%= @instrument.year %></p>
+    <p>Rate: <%= @instrument.rate %>/per day</p>
+    <% link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success' %>
+  </div>
 </div>
