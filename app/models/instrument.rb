@@ -1,5 +1,6 @@
 class Instrument < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  has_many :bookings
   has_one_attached :photo
   validates :name, presence: true
   validates :model, presence: true
