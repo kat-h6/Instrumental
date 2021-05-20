@@ -1,0 +1,17 @@
+<h1>My Instruments</h1>
+<% @instruments.each do |instrument| %>
+  <div>
+    <%= cl_image_tag instrument.photo.key %>
+
+    <h2><%= instrument.name %></h2>
+    <% instrument.bookings.each do |booking| %>
+      <h4>Renter: <%= booking.renter %></h4>
+      <p>Details: <%= booking.details %></p>
+      <p>Start date: <%= booking.start_date %></p>
+      <p>End date: <%= booking.end_date %></p>
+      <p>Price: <%= booking.price %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
