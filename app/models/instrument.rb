@@ -5,6 +5,8 @@ class Instrument < ApplicationRecord
   validates :model, presence: true
   validates :category, presence: true
   validates :year, presence: true
-  validates :rate, presence: true, numericality: true
+  validates :rate, presence: true, numericality: {
+  	greater_than_or_equal_to: 0
+  }
 
 end
