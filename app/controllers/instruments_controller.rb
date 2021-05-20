@@ -6,6 +6,7 @@ class InstrumentsController < ApplicationController
 
   def show
     set_instrument
+    @owner = @instrument.owner
   end
 
   def new
