@@ -14,6 +14,7 @@ class InstrumentsController < ApplicationController
 
 	def create
 		@instrument = Instrument.new(instrument_params)
+    @instrument.owner_id = current_user.id
 		if @instrument.save
 			redirect_to instrument_path(@instrument)
 		else
