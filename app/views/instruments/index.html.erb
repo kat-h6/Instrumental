@@ -1,8 +1,16 @@
 <h1 style="text-align:center">Instruments</h1>
 <div class="container">
-  <% @instruments.each do |instrument| %>
-    <h3><%= instrument.name %> <%= instrument.model %></h3>
-    <p><%= instrument.rate %></p>
-  <% end %>
+  <div class="row">
+    <% @instruments.each do |instrument| %>
+      <div class="col-xs-12 col-md-4">
+        <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
+        <p> <%= instrument.model %></p>
+        <img src="https://source.unsplash.com/collection/4664641/200x200">
+        <p>Rate: €<%= instrument.rate %>/day</p>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to 'add instrument for rent', new_instrument_path, class: 'btn btn-primary' %>
+  <%= link_to "logout", destroy_user_session_path, class: 'btn btn-primary', method: :delete  %>
 </div>
 
