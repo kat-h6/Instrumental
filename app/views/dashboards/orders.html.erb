@@ -1,14 +1,17 @@
 <h1>My Instruments</h1>
 <% @instruments.each do |instrument| %>
-  <% @instruments = Instrument.where(owner: current_user) %>
   <div>
-    <%= cl_image_tag Instrument.current_user %>
-    <h2>Renter: <%= Booking.user[:renter] %></h2>
-    <p>Details: <%= Booking.details %></p>
-    <p>Start date: <%= Booking.start_date %></p>
-    <p>End date: <%= Booking.end_date %></p>
-    <p>Price: <%= Booking.price %></p>
+    <%= cl_image_tag instrument.photo.key %>
+
+    <h2><%= instrument.name %></h2>
+    <% instrument.bookings.each do |booking| %>
+      <h4>Renter: <%= booking.renter %></h4>
+      <p>Details: <%= booking.details %></p>
+      <p>Start date: <%= booking.start_date %></p>
+      <p>End date: <%= booking.end_date %></p>
+      <p>Price: <%= booking.price %></p>
+    <% end %>
   </div>
 <% end %>
 
-<%= link_to 'Back', index_path, class: 'btn btn-primary' %>
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
