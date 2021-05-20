@@ -1,6 +1,6 @@
 <h1 style="text-align:center"><%= @instrument.name %> <%= @instrument.model %></h1>
 <div class="container d-flex mt-4">
-  <img src="https://source.unsplash.com/collection/4664641/400x400" class="mr-4">
+  <%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill %>
   <div>
     <p>Category: <%= @instrument.category %></p>
     <p>Year: <%= @instrument.year %></p>
