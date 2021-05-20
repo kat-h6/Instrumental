@@ -1,5 +1,5 @@
 class InstrumentsController < ApplicationController
-  
+
   def index
     @instruments = Instrument.all
   end
@@ -7,21 +7,21 @@ class InstrumentsController < ApplicationController
   def show
     set_instrument
   end
-  
-	def new
-		@instrument = Instrument.new
-	end
 
-	def create
-		@instrument = Instrument.new(instrument_params)
+  def new
+    @instrument = Instrument.new
+  end
+
+  def create
+    @instrument = Instrument.new(instrument_params)
     @instrument.owner_id = current_user.id
-		if @instrument.save
-			redirect_to instrument_path(@instrument)
-		else
-			render :new
-		end
-	end
-  
+    if @instrument.save
+      redirect_to instrument_path(@instrument)
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_instrument
@@ -29,8 +29,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-  	params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo)
+    params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo)
   end
 end
-
-
