@@ -1,0 +1,11 @@
+<h3>Book an instrument</h3>
+
+ <%= simple_form_for @booking do |f| %>
+          <%= f.input :price, placeholder: '10€' %>
+          <%= f.input :details %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          
+
+         <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
