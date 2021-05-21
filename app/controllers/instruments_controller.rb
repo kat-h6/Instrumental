@@ -3,6 +3,12 @@ class InstrumentsController < ApplicationController
 
   def index
     @instruments = Instrument.all
+    @markers = @instruments.geocoded.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude
+      }
+    end
   end
 
   def show
@@ -31,6 +37,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo)
+    params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo, :address)
   end
 end
