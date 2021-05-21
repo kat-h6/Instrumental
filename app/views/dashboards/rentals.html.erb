@@ -1,0 +1,14 @@
+<h1>My Rentals</h1>
+<% @bookings.each do |booking| %>
+  <div>
+    <%= cl_image_tag instrument.photo.key %>
+
+    <h2>Owner: <%= instrument.owner %></h2>
+    <p>Details: <%= instrument.details %></p>
+    <p>Start date: <%= booking.start_date %></p>
+    <p>End date: <%= booking.end_date %></p>
+    <p>Price: <%= booking.price %></p>
+  </div>
+<% end %>
+
+<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
