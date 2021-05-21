@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.instrument = @instrument
     @instrument.user_id = current_user.id
     if @booking.save
       redirect_to instrument_path(@booking.instrument)
