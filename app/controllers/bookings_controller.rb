@@ -1,16 +1,18 @@
 class BookingsController < ApplicationController
 
   def new
-    @instrument = instrument.find(params[:instrument_id])
+    @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new
   end
 
   def create
+    @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new(booking_params)
-    @instrument = instrument.find(params[:instrument_id])
-    @instrument.user_id = current_user.id
+    @booking.instrument = @instrument
+    @booking.renter = current_user
+    @booking.price = @instrument.rate * (@booking.end_date - @booking.start_date).to_i
     if @booking.save
-      redirect_to instrument_path(@booking.instrument)
+      redirect_to rentals_path
     else
       render :new
     end
