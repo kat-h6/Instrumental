@@ -27,5 +27,3 @@ class Booking < ApplicationRecord
     end
  end
 end
-
-

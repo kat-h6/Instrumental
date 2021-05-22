@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
   def show
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:booking_id])
   end
 
   def new    
@@ -13,16 +13,15 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    # we need `booking_id` to associate review with corresponding booking
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     @review.save
-    
-    redirect_to booking_path(@booking)
+
+    redirect_to rentals_path
   end
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = Review.find(params[:renter_id])
     @review.destroy
     redirect_to booking_path(@review.booking)
   end
