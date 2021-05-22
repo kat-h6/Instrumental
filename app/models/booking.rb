@@ -2,6 +2,8 @@ class Booking < ApplicationRecord
   enum status: [:pending, :accepted, :rejected]
   belongs_to :instrument
   belongs_to :renter, class_name: 'User', foreign_key: 'renter_id'
+  has_many :reviews, dependent: :destroy
+
 
   validates :price, presence: true, numericality: {
     greater_than_or_equal_to: 0

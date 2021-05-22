@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: 'instruments#index'
   get '/user' => "instruments#index", :as => :user_root
 
   resources :instruments, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:new, :index, :create]
+    resources :bookings, only: [:new, :index, :create] do
+      resources :reviews, only: [ :new, :create ]
   end
 
   resources :dashboards, only: [:edit, :update]
