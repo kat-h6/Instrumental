@@ -1,2 +1,66 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.inner-img img {
+  width: 200px;
+  padding-right: 20px;
+}
+
+.inner-content {
+  display: block;
+  padding: 20px;
+}
+
+.list-wrapper {
+  margin: 50px auto;
+}
+
+.list-item {
+  background-color: #fff;
+  padding: 30px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.avatar_style {
+  color: grey;
+}
+
+.navbar {
+  background-color: #fff;
+  height: 80px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.nav-container {
+  width: 1920px;
+  justify-content: space-between;
+}
+
+.menu-wrapper {
+  display: flex;
+  width: 1920px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-items ul {
+  width: 500px;
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.menu-items ul>li {
+  text-decoration: none;
+  list-decoration: none;
+  list-style-type: none;
+}
