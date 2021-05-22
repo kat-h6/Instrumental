@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :bookings, only: [:update, :destroy]
+  resources :bookings, only: [:update, :destroy] do
+    resources :reviews, only: [:new, :create]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'orders', to: 'dashboards#orders'
