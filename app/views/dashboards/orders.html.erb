@@ -1,28 +1,8 @@
-<div class="navbar">
-  <div class="nav-container">
-    <div class="d-flex">
-      <div class="logo">
-
-      </div>
-      <div class="menu-wrapper">
-        <div class="menu-items">
-          <ul>
-            <li><%= link_to 'Rent an instrument', instruments_path %></li>
-            <li><%= link_to 'My rentals', rentals_path %></li>
-            <li><%= link_to 'My instruments', orders_path %></li>
-          </ul>
-        </div>
-        <%= image_tag('account_circle_black_48dp.svg') %>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="container">
 <div class="d-flex">
   <h1>My Instruments (<%= @instruments.count %>)</h1> <%= link_to 'Add new instrument', root_path, class: 'btn btn-primary' %>
 </div>
-
 <div class="list-wrapper">
 <% @instruments.each do |instrument| %>
   <div class="list-item">
@@ -30,7 +10,6 @@
       <div class="inner-img">
       <%= cl_image_tag instrument.photo.key %>
       </div>
-
       <div class="inner-content">
         <div class="d-flex">
           <h2><%= instrument.name %></h2>
@@ -44,13 +23,21 @@
       <p>Start date: <%= booking.start_date %></p>
       <p>End date: <%= booking.end_date %></p>
       <p>Price: <%= booking.price %></p>
-      <%= link_to 'Remove', orders_path(order), method: :delete,
-                  data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" }, class: 'btn btn-danger' %>
-    <% end %>
+      <%= simple_form_for booking do |f| %>
+      <%= f.input :status, as: :hidden, value: "accepted" %>
+      <%= f.button :submit, "accept", class: 'btn btn-success' %>
+      <% end %>
+      <%= simple_form_for booking do |f| %>
+      <%= f.input :status, as: :hidden, value: "rejected" %>
+      <%= f.button :submit, "reject", class: 'btn btn-success' %>
+      <% end %>
+
+      <%= link_to 'Remove', booking_path(booking), method: :delete,
+      data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" }, class: 'btn btn-danger' %>
+
+     <% end %>
   </div>
 <% end %>
 </div>
-
-
 <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
 </div>
