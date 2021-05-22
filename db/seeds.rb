@@ -11,6 +11,7 @@
 # create 5 instrument instances
 
 require 'faker'
+require 'open-uri'
 Instrument.destroy_all
 User.destroy_all
 
@@ -28,7 +29,7 @@ photos = ["https://source.unsplash.com/XIe1b4k9-k0/200x200",
 puts 'Creating 15 instruments...'
 puts "added a change"
 15.times do
-  instrument = Instrument.create!(
+  instrument = Instrument.new(
     name: Faker::Music.instrument,
     model: Faker::Company.duns_number,
     category: ['woodwinds', 'brass', 'strings', 'percussion'].sample,
@@ -37,7 +38,13 @@ puts "added a change"
     rate: (rand(0.1) * 10).round(2),
     owner: User.all.sample,
     address: Faker::Address.full_address,
-    photo: Cloudinary::Uploader.upload(photos.sample)
+    # photo: Cloudinary::Uploader.upload(photos.sample)
   )
+  puts "new instrument"
+  instrument.photo.attach(URI.open(photos.sample))
+  puts "photo attached"
+  instrument.save
+  puts "saved"
 end
+
 puts 'Finished!'
