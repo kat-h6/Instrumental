@@ -1,4 +1,5 @@
 <h3>Book an instrument</h3>
+
   <%= simple_form_for [ @instrument, @booking ] do |f| %>
           <p> <%=  @instrument.rate %></p>
           <%= f.input :details %>
@@ -8,3 +9,4 @@
   <% end %>
 
    
+

@@ -1,0 +1,8 @@
+
+<%= cl_image_tag instrument.photo.key, width: 200, height:100, crop: :fill %>
+<div class="details">
+  <h2><%= instrument.name %></h2>
+  <p>Address: <%= instrument.address %></p>
+  <p>Rate: €<%= instrument.rate  %>/day</p>
+</div>
+

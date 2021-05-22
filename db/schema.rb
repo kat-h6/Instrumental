@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 2021_05_22_095037) do
     t.bigint "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["owner_id"], name: "index_instruments_on_owner_id"
   end
 

@@ -1,15 +1,64 @@
-<h1>My Rentals</h1>
+<div class="navbar">
+  <div class="nav-container">
+    <div class="d-flex">
+      <div class="logo">
+
+      </div>
+      <div class="menu-wrapper">
+        <div class="menu-items">
+          <ul>
+            <li><%= link_to 'Rent an instrument', instruments_path %></li>
+            <li><%= link_to 'My rentals', rentals_path %></li>
+            <li><%= link_to 'My instruments', orders_path %></li>
+          </ul>
+        </div>
+        <%= image_tag('account_circle_black_48dp.svg') %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<div class="d-flex">
+  <h1>My Rentals <% if @bookings.count > 0 %>(<%= @bookings.count %>)<% end %></h1>
+  <%= link_to 'Find an instrument', instruments_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="list-wrapper">
 <% @bookings.each do |booking| %>
   <div>
-    <%= cl_image_tag booking.instrument.photo.key 
-    %>
+  <div class="list-item">
+    <div class="d-flex">
+      <div class="inner-img">
+        <%= cl_image_tag instrument.photo.key %>
+      </div>
 
-    <h2>Owner: <%= booking.instrument.owner %></h2>
-    <p>Details: <%= booking.instrument.details %></p>
-    <p>Start date: <%= booking.start_date %></p>
-    <p>End date: <%= booking.end_date %></p>
-    <p>Price: <%= booking.price %></p>
-    <p>Status: <%= booking.status %></p>
+      <div class="inner-content">
+        <div class="d-flex">
+          <h2>Owner: <%= instrument.owner %></h2>
+          <p><%= booking.start_date %> - <%= booking.end_date %></p>
+        </div>
+        <p>Price: <%= booking.price %></p>
+      </div>
+    </div>
+    
+    <%#= REVIEWS %>
+
+    <% if booking.end_date < Date.today %>
+    <div class="card">
+      <ul class="list-group">
+        <% booking.reviews.each do |review| %>
+          <li class="list-group-item">
+            <p><%= review.title %></p>
+            <%= @star_checked %>
+            <p><%= review.content %></p>
+          </li>   
+        <% end %>
+      </ul>
+      <%= link_to 'Leave a review', new_booking_review_path(booking.id), class: 'btn btn-secondary' %>
+    </div>
+    <% end %>
+
   </div>
 <% end %>
 

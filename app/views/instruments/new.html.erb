@@ -8,9 +8,12 @@
           <%= f.input :details %>
           <%= f.input :year%>
           <%= f.input :rate %>
+          <%= f.input :address %>
           <%= f.input :photo, as: :file %>
 
           <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+  <% end %>
+
+  <%= link_to 'back', instruments_path, class: 'btn btn-primary mt-4' %>
 </div>
 
