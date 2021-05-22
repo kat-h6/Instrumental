@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get '/user' => "instruments#index", :as => :user_root
 
   resources :instruments, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:new, :index]
+    resources :bookings, only: [:new, :index, :create]
   end
+
   resources :bookings, only: [:update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
