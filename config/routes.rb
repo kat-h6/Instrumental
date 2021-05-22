@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'instruments#index'
+  get '/user' => "instruments#index", :as => :user_root
 
   resources :instruments, only: [:index, :show, :new, :create] do
     resources :bookings, only: [:new, :index, :create]
