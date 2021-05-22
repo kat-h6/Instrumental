@@ -8,4 +8,13 @@ class DashboardsController < ApplicationController
   def rentals
     @bookings = Booking.where(renter: current_user)
   end
+
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(params[:booking])
+  end
 end
