@@ -1,7 +1,15 @@
 class InstrumentsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
     @instruments = Instrument.all
+    @markers = @instruments.geocoded.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { instrument: instrument })
+      }
+    end
   end
 
   def show
@@ -30,6 +38,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo)
+    params.require(:instrument).permit(:name, :model, :details, :year, :rate, :category, :photo, :address)
   end
 end
