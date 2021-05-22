@@ -1,16 +1,22 @@
 <h1 style="text-align:center">Instruments</h1>
-<div class="container">
+<div class="container mb-4">
   <div class="row">
     <% @instruments.each do |instrument| %>
       <div class="col-xs-12 col-md-4">
         <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
         <p> <%= instrument.model %></p>
-        <img src="https://source.unsplash.com/collection/4664641/200x200">
+        <%= cl_image_tag instrument.photo.key, height: 200, width: 200, crop: :fill %>
         <p>Rate: €<%= instrument.rate %>/day</p>
       </div>
     <% end %>
   </div>
   <%= link_to 'add instrument for rent', new_instrument_path, class: 'btn btn-primary' %>
   <%= link_to "logout", destroy_user_session_path, class: 'btn btn-primary', method: :delete  %>
+</div>
+
+<div class="m-auto", id="map"
+     style="width: 50%; height: 500px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
