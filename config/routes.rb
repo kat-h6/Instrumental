@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :instruments, only: [:index, :show, :new, :create] do
-    resources :bookings, only: [:new, :index]
+    resources :bookings, only: [:new, :index, :create]
   end
+
+  resources :dashboards, only: [:edit, :update]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'orders', to: 'dashboards#orders'
   get 'rentals', to: 'dashboards#rentals'
+  
 end
