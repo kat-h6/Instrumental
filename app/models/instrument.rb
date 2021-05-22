@@ -1,5 +1,6 @@
 class Instrument < ApplicationRecord
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
+  has_many :bookings, dependent: :destroy
   has_one_attached :photo
   validates :name, presence: true
   validates :model, presence: true
@@ -8,7 +9,7 @@ class Instrument < ApplicationRecord
   validates :address, presence: true
 
   validates :rate, presence: true, numericality: {
-  	greater_than_or_equal_to: 0
+    greater_than_or_equal_to: 0
   }
   has_many :bookings
 
