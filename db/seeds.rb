@@ -82,7 +82,7 @@ instrument_four.photo.attach(io: file_four, filename: 'temp.png', content_type: 
 instrument_four.save!
 puts "created!"
 
-file_five = URI.open('https://images.unsplash.com/photo-1590054387835-ab72678fef01?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80')
+file_five = URI.open('https://images.unsplash.com/photo-1520614829617-44ad1894380c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=937&q=80')
 instrument_five = Instrument.new(
     name: 'french horn',
     model: 'Holton H179',
@@ -95,6 +95,7 @@ instrument_five = Instrument.new(
 )
 instrument_five.photo.attach(io: file_five, filename: 'temp.png', content_type: 'image/png')
 instrument_five.save!
+puts 'created!'
 
 file_six = URI.open('https://images.unsplash.com/photo-1595069906974-f8ae7ffc3e7a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80')
 instrument_six = Instrument.new(
@@ -102,13 +103,14 @@ instrument_six = Instrument.new(
     model: 'fleet',
     category: 'percussion',
     year: 2015,
+    details: 'nice drums',
     rate: 25,
     owner: User.last,
     address: 'Rudi-Dutschke-Straße 26, 10969 Berlin, Germany'
 )
 instrument_six.photo.attach(io: file_six, filename: 'temp.png', content_type: 'image/png')
 instrument_six.save!
-
+puts 'created!'
 
 file_seven = URI.open('https://images.unsplash.com/photo-1549264153-48f39faafc60?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
 instrument_seven = Instrument.new(
@@ -123,28 +125,14 @@ instrument_seven = Instrument.new(
 )
 instrument_seven.photo.attach(io: file_seven, filename: 'temp.png', content_type: 'image/png')
 instrument_seven.save!
-
-
-file_eight = URI.open('https://images.unsplash.com/photo-1578961771886-97d51aee46bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=718&q=80')
-instrument_eight = Instrument.new(
-    name: 'drum',
-    model: 'yamaha',
-    category: 'percussion',
-    year: 2009,
-    rate: 18,
-    owner: User.first,
-    address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
-)
-instrument_eight.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
-instrument_eight.save!
-
+puts 'created!'
 
 file_nine = URI.open('https://images.unsplash.com/photo-1562808191-76e71b08a870?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
 instrument_nine = Instrument.new(
     name: 'flute',
     model: 'muramatsu EX with b foot joint',
     category: 'woodwinds',
-    details: 'professional flute, all silver, split E mechanism',
+    details: 'professional flute, split E mechanism',
     year: 2016,
     rate: 60,
     owner: User.last,
@@ -152,6 +140,23 @@ instrument_nine = Instrument.new(
 )
 instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
 instrument_nine.save!
+
+
+file_eight = URI.open('https://images.unsplash.com/photo-1571327073757-71d13c24de30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+instrument_eight = Instrument.new(
+    name: 'nice drums',
+    model: 'yamaha',
+    category: 'percussion',
+    details: 'cool drum',
+    year: 2009,
+    rate: 18,
+    owner: User.first,
+    address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
+)
+instrument_eight.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
+instrument_eight.save!
+puts "created!"
+
 
 
 puts 'Finished!'
