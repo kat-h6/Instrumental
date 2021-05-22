@@ -1,5 +1,0 @@
-<%= form_for(@booking, remote: true) do |fa| %>
-  <%= fa.hidden_field :status, :value => @booking.status %>
-  <%= fa.submit "Approve", class: "btn btn-large btn-success", onclick: "booking_status.value = '1'" %>
-  <%= fa.submit "Reject", class: "btn btn-large btn-danger", onclick: "booking_status.value = '2'" %>
-<% end %>
