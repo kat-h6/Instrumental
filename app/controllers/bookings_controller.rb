@@ -18,9 +18,24 @@ class BookingsController < ApplicationController
     end
   end
 
+  
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to orders_path
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+
+    redirect_to orders_path
+  end
+
+
   private
 
   def booking_params
-    params.require(:booking).permit(:price, :start_date, :end_date, :details)
+    params.require(:booking).permit(:price, :start_date, :end_date, :details, :status)
   end
 end
