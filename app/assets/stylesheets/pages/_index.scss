@@ -30,18 +30,33 @@
   border-radius: 50%;
 }
 
+.avatar_style {
+  color: grey;
+}
+
 .navbar {
   background-color: #fff;
   height: 80px;
   align-items: center;
   margin-bottom: 50px;
 }
+.nav-container {
+  width: 1920px;
+  justify-content: space-between;
+}
 
 .menu-wrapper {
   display: flex;
-  width: 200px;
+  width: 1920px;
   align-items: center;
   justify-content: space-between;
+}
+
+.menu-items ul {
+  width: 500px;
+  display: inline-flex;
+  justify-content: space-between;
+  margin: 0;
 }
 
 .menu-items ul>li {

@@ -1,4 +1,5 @@
 <div class="navbar">
+  <div class="nav-container">
   <div class="d-flex">
     <div class="logo">
 
@@ -6,11 +7,14 @@
     <div class="menu-wrapper">
       <div class="menu-items">
         <ul>
+          <li><%= link_to 'Rent an instrument', instruments_path %></li>
           <li><%= link_to 'My rentals', rentals_path %></li>
+          <li><%= link_to 'My instruments', orders_path %></li>
         </ul>
       </div>
-      <img class="avatar" alt="avatar" src="account_circle_black_48dp.svg" />
+      <%= image_tag('account_circle_black_48dp.svg') %>
     </div>
+  </div>
   </div>
 </div>
 
