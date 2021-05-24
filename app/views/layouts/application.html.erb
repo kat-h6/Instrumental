@@ -25,9 +25,9 @@
               <li><%= link_to 'Rent an instrument', instruments_path %></li>
               <li><%= link_to 'My rentals', rentals_path %></li>
               <li><%= link_to 'My instruments', orders_path %></li>
-              <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>
+          <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
         </div>
       </div>
     </div>
