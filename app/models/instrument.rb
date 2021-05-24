@@ -4,7 +4,7 @@ class Instrument < ApplicationRecord
   has_one_attached :photo
   validates :name, presence: true
   validates :model, presence: true
-  validates :category, presence: true
+  validates :category, inclusion: { in: %w[woodwinds strings brass percussion guitar keyboard other], allow_nil: false }
   validates :year, presence: true
   validates :address, presence: true
 
