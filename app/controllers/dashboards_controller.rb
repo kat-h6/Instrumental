@@ -9,5 +9,5 @@ class DashboardsController < ApplicationController
     @bookings = Booking.where(renter: current_user)
   end
 
- 
+
 end
