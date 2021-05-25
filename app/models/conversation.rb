@@ -12,4 +12,8 @@ class Conversation < ApplicationRecord
   def with(current_user)
     author == current_user ? receiver : author
   end
+
+  def participates?(user)
+    author == user || receiver == user
+  end
 end

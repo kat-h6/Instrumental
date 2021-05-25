@@ -156,7 +156,7 @@ instrument_eight = Instrument.new(
     owner: User.first,
     address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
 )
-instrument_eight.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
+instrument_eight.photo.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')
 instrument_eight.save!
 puts "created!"
 
