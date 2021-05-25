@@ -22,12 +22,15 @@
         <div class="menu-wrapper">
           <div class="menu-items">
             <ul>
-              <li><%= link_to 'Rent an instrument', instruments_path %></li>
+              <li><%= link_to 'Browse instruments', instruments_path %></li>
               <li><%= link_to 'My rentals', rentals_path %></li>
               <li><%= link_to 'My instruments', orders_path %></li>
             </ul>
           </div>
+          <div class="menu-wrapper-right">
+          <%= link_to 'Add instrument for rent', new_instrument_path, class: 'btn btn-primary' %>
           <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
+          </div>
         </div>
       </div>
     </div>

@@ -142,22 +142,6 @@ instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 
 instrument_nine.save!
 
 
-file_eight = URI.open('https://images.unsplash.com/photo-1571327073757-71d13c24de30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
-instrument_eight = Instrument.new(
-    name: 'nice drums',
-    model: 'yamaha',
-    category: 'percussion',
-    details: 'cool drum',
-    year: 2009,
-    rate: 18,
-    owner: User.first,
-    address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
-)
-instrument_eight.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
-instrument_eight.save!
-puts "created!"
-
-
 
 puts 'Finished!'
 

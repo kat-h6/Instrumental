@@ -1,37 +1,50 @@
-<h1 style="text-align:center">Instruments (<%= Instrument.count %>)</h1>
-
-<div class="container">
-  <%= form_tag instruments_path, method: :get do %>
-    <div class="form-group">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an instrument"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<div class="d-flex">
+<div class="col-xs-12 col-md-8 col-lg-6">
+  <div class="search-box">
+      <h1>Instrumental</h1>
+        <%= form_tag instruments_path, method: :get do %>
+          <div class="form-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find your next instrument"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <div>
+          <% @instruments.each do |instrument| %>
+            <a class="category-tag" href="#">
+              <%= instrument.category %>
+            </a>
+          <% end %>
+        </div>
     </div>
-  <% end %>
-</div>
 
+    <div class="list-count">
+      <p>Instruments (<%= Instrument.count %>)</p>
+    </div>
 
-<div class="container mb-4">
-  <div class="row">
+    <div class="instrument-list">
     <% @instruments.each do |instrument| %>
-      <div class="col-xs-12 col-md-4">
-        <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
-        <p> <%= instrument.model %></p>
+      <div class="card-container">
         <%= cl_image_tag instrument.photo.key, height: 200, width: 200, crop: :fill %>
-        <p>Rate: €<%= instrument.rate %>/day</p>
+        <div class="card-inner-info">
+        <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
+        <div class="d-flex">
+            <p><%= instrument.model %></p>
+            <p>€<%= instrument.rate %>/day</p>
+        </div>
+        </div>
       </div>
     <% end %>
   </div>
-  <%= link_to 'add instrument for rent', new_instrument_path, class: 'btn btn-primary' %>
-  <%= link_to "logout", destroy_user_session_path, class: 'btn btn-primary', method: :delete  %>
 </div>
 
-<div class="m-auto", id="map"
-     style="width: 50%; height: 500px;"
+<div class="col-xs-12 col-md-4 col-lg-6">
+  <div class="m-auto", id="map"
+     style="width: auto; height: 100vh; position: -webkit-sticky; position: sticky; top: 25px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
-
