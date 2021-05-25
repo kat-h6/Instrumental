@@ -4,7 +4,7 @@
  <%= simple_form_for @instrument do |f| %>
           <%= f.input :name, placeholder: 'Violin' %>
           <%= f.input :model %>
-          <%= f.input :category %>
+          <%= f.input :category, :collection => %w[woodwinds strings brass percussion guitar keyboard other] %>
           <%= f.input :details %>
           <%= f.input :year%>
           <%= f.input :rate %>
