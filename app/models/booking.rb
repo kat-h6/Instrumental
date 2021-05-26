@@ -10,6 +10,8 @@ class Booking < ApplicationRecord
   }
 
   validates :start_date, :end_date, presence: true
+  validate :end_date_after_start_date
+
 
   #validates :end_date, :end_date_after_start_date
   #validates :start_date_greater_than_today
@@ -23,10 +25,4 @@ class Booking < ApplicationRecord
       errors.add(:end_date, "must be after the start date")
     end
   end
-
-  def start_date_greater_than_today
-    if start_date < Date.now 
-      errors.add(:end_date, "must be after now")
-    end
- end
 end
