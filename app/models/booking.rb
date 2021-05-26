@@ -28,5 +28,5 @@ class Booking < ApplicationRecord
     if start_date < Date.now 
       errors.add(:end_date, "must be after now")
     end
- end
+  end
 end
