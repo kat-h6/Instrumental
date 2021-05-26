@@ -50,12 +50,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_180134) do
     t.index ["renter_id"], name: "index_bookings_on_renter_id"
   end
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "conversations", force: :cascade do |t|
     t.integer "author_id"
     t.integer "receiver_id"
@@ -80,16 +74,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_180134) do
     t.index ["owner_id"], name: "index_instruments_on_owner_id"
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "chatroom_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
   create_table "personal_messages", force: :cascade do |t|
     t.text "body"
     t.bigint "conversation_id", null: false
@@ -110,15 +94,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_180134) do
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string "keywords"
-    t.string "category"
-    t.decimal "min_rate"
-    t.decimal "max_rate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -137,8 +112,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_180134) do
   add_foreign_key "bookings", "instruments"
   add_foreign_key "bookings", "users", column: "renter_id"
   add_foreign_key "instruments", "users", column: "owner_id"
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "personal_messages", "conversations"
   add_foreign_key "personal_messages", "users"
   add_foreign_key "reviews", "bookings"

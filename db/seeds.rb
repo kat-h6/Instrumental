@@ -16,6 +16,7 @@ Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
 
+
 puts "destroyed all"
 
 User.create(email: "kathy@gmail.com", password: "password", first_name: "Kathy", last_name: "H")
@@ -35,7 +36,7 @@ instrument_one = Instrument.new(
     owner: User.last,
     address: 'Schweigaards gate 34 C, 0191 Oslo, Norway'
 )
-instrument_one.photo.attach(io: file_one)
+instrument_one.photo.attach(io: file_one, filename: 'temp.png', content_type: 'image/png')
 instrument_one.save!
 puts "created!"
 
