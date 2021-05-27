@@ -12,6 +12,7 @@
   <div class="list-item">
     <div class="d-flex">
       <div class="inner-img">
+        <%= cl_image_tag booking.instrument.photo.key %>
       </div>
 
       <div class="inner-content">
@@ -21,7 +22,7 @@
         </div>
         <p>Price: <%= booking.price %></p>
         <p>Status: <%= booking.status %></p>
-
+        <p>Contact: <%= link_to "#{booking.instrument.owner.first_name} #{booking.instrument.owner.last_name}", new_personal_message_path(receiver_id:booking.instrument.owner) %></p>
       </div>
     </div>
 

@@ -4,7 +4,7 @@ class Instrument < ApplicationRecord
   has_one_attached :photo
   validates :name, presence: true
   validates :model, presence: true
-  validates :category, presence: true
+  validates :category, inclusion: { in: %w[woodwinds strings brass percussion guitar keyboard other], allow_nil: false }
   validates :year, presence: true
   validates :address, presence: true
 
@@ -14,4 +14,21 @@ class Instrument < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_model_category,
+    against: {
+      name: 'A',
+      category: 'B',
+      model: 'C'
+    },
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
+
+    def unavailable_dates
+      bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+      end
+    end
 end

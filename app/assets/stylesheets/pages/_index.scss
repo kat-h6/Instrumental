@@ -37,22 +37,24 @@
   margin-bottom: 50px;
 }
 .nav-container {
-  width: 1920px;
+  width: 100%;
   justify-content: space-between;
 }
 
 .menu-wrapper {
   display: flex;
-  width: 1920px;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
+  padding: 0 50px;
 }
 
 .menu-items ul {
-  width: 500px;
+  width: 550px;
   display: inline-flex;
   justify-content: space-between;
   margin: 0;
+  padding: 0;
 }
 
 .menu-items ul>li {

@@ -12,8 +12,12 @@
 
 require 'faker'
 require 'open-uri'
+Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
+
+
+puts "destroyed all"
 
 User.create(email: "kathy@gmail.com", password: "password", first_name: "Kathy", last_name: "H")
 User.create(email: "tavis@gmail.com", password: "password", first_name: "Tavis", last_name: "D")
