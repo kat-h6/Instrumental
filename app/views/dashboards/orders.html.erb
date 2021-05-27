@@ -28,17 +28,17 @@
       <%= f.input :status, as: :hidden, :input_html => { :value => "accepted" } %>
       <%= f.button :submit, "accept", class: 'btn btn-success' %>
       <% end %>
-      
+
       <%= simple_form_for booking do |f| %>
       <%= f.input :status, as: :hidden, :input_html => { :value => "rejected" } %>
       <%= f.button :submit, "reject", class: 'btn btn-success' %>
       <% end %>
-      <% else %> 
+      <% else %>
         <p> Status: <%= booking.status %> </p>
       <% end %>
       <%= link_to 'Remove', booking_path(booking), method: :delete,
       data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" }, class: 'btn btn-danger' %>
-      
+
      <% end %>
   </div>
 <% end %>
