@@ -26,6 +26,8 @@
               <li><%= link_to 'My rentals', rentals_path %></li>
               <li><%= link_to 'My instruments', orders_path %></li>
               <li><%= link_to 'Conversations', conversations_path %></li>
+              <li><%= link_to 'My profile', profile_path(current_user) %></li>
+
             </ul>
           </div>
           <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
