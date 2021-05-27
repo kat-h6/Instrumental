@@ -1,0 +1,12 @@
+<h1 style="text-align:center"><%= @user.first_name %> <%= @user.last_name %></h1>
+<div class="container d-flex mt-4">
+
+  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="ml-4">
+
+    <p>Category: <%= @user.age %></p>
+    <p>Year: <%= @user.city %></p>
+    <p>Rate: €<%= @user.occupation %>/day</p>
+    <p>Address: <%= @user.about_me %></p>
+    
+</div>
