@@ -1,8 +1,7 @@
 
 const messageScroll = () => {
-  messages = $('#conversation-body')
-  if messages.length > 0
-    messages.scrollTop(messages.prop("scrollHeight"))
+  const messages = document.querySelector('#conversation-body')
+  messages.scrollTop = messages.scrollHeight;
 
 }
 

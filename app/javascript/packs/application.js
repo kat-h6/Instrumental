@@ -34,7 +34,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import {initAutocomplete} from '../plugins/init_autocomplete';
 import { initFlatpickr } from "../plugins/flatpickr";
-
+import { messageScroll } from '../plugins/message_scroll';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,7 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
 
   initFlatpickr();
-
+  messageScroll();
   // Call your functions here, e.g:
   // initSelect2();
 });
