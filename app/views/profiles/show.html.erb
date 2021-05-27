@@ -4,9 +4,9 @@
   <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="ml-4">
 
-    <p>Category: <%= @user.age %></p>
-    <p>Year: <%= @user.city %></p>
-    <p>Rate: €<%= @user.occupation %>/day</p>
-    <p>Address: <%= @user.about_me %></p>
+    <p>Age: <%= @user.age %></p>
+    <p>City: <%= @user.city %></p>
+    <p>Occupation: €<%= @user.occupation %>/day</p>
+    <p>About me: <%= @user.about_me %></p>
     
 </div>
