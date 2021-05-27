@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
+  initFlatpickr();
   // Call your functions here, e.g:
   // initSelect2();
-  initFlatpickr();
+}
