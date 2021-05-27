@@ -34,7 +34,9 @@
         <% booking.reviews.each do |review| %>
           <li class="list-group-item">
             <p><%= review.title %></p>
-            <%= @star_checked %>
+            <% review.rating.times do %>
+              <i class="bi bi-star"></i>
+            <% end %>
             <p><%= review.content %></p>
           </li>
         <% end %>
