@@ -25,19 +25,22 @@ require("channels")
 // External imports
 import "bootstrap";
 
+
+
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
-import {initAutocomplete} from '../plugins/init_autocomplete'
-import { toggleDateInputs } from '../components/booking';
+import {initAutocomplete} from '../plugins/init_autocomplete';
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+  initFlatpickr();
   // Call your functions here, e.g:
   // initSelect2();
 });
 
 
-toggleDateInputs();
 
