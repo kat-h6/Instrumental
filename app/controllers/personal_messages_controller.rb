@@ -15,8 +15,13 @@ class PersonalMessagesController < ApplicationController
     @personal_message.save!
 
     flash[:success] = "Your message was sent!"
+    ConversationChannel.broadcast_to(@conversation, render_to_string(partial: "personal_messages/personal_message", locals: { personal_message: @personal_message }))
+
     redirect_to conversation_path(@conversation)
+
   end
+
+
 
   private
 

@@ -3,7 +3,9 @@
 
   <div id="conversation-main">
     <div id="conversation-body">
+      <div class="container" id="messages" data-conversation-id="<%= @conversation.id %>">
       <%= render @conversation.personal_messages %>
+    </div>
     </div>
 
     <%= form_for @personal_message do |f| %>
