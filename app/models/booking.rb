@@ -12,10 +12,6 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, presence: true
   validate :end_date_after_start_date
 
-
-  #validates :end_date, :end_date_after_start_date
-  #validates :start_date_greater_than_today
-
   private
 
   def end_date_after_start_date
