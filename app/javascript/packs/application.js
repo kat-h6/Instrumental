@@ -34,7 +34,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
 import {initAutocomplete} from '../plugins/init_autocomplete';
 import { initFlatpickr } from "../plugins/flatpickr";
-<<<<<<< HEAD
 import { messageScroll } from '../plugins/message_scroll';
 import { initConversationCable } from '../channels/conversation_channel';
 
@@ -47,6 +46,5 @@ document.addEventListener('turbolinks:load', () => {
   initConversationCable();
   messageScroll();
 
-  // Call your functions here, e.g:
-  // initSelect2();
-}
+})
+
