@@ -34,7 +34,10 @@
 
             </ul>
           </div>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
+          <div class="navbar-right">
+            <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
+            <%= cl_image_tag "#{current_user.photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar" %>
+          </div>
         </div>
       </div>
     </div>

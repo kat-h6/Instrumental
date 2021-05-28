@@ -22,9 +22,9 @@ puts "destroyed all"
 photo_one = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
 
 user_one = User.new(
-    email: "kathy@gmail.com", 
-    password: "password", 
-    first_name: "Kathy", 
+    email: "kathy@gmail.com",
+    password: "password",
+    first_name: "Kathy",
     last_name: "H",
     age: 25,
     city: "Helsinki",
@@ -38,9 +38,9 @@ puts "created!"
 photo_two = URI.open('https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
 
 user_two = User.new(
-    email: "tavis@gmail.com", 
-    password: "password", 
-    first_name: "Tavis", 
+    email: "tavis@gmail.com",
+    password: "password",
+    first_name: "Tavis",
     last_name: "D",
     age: 25,
     city: "Oslo",
@@ -54,9 +54,9 @@ puts "created!"
 photo_three = URI.open('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
 
 user_three = User.new(
-    email: "Sepideh@gmail.com", 
-    password: "password", 
-    first_name: "Sapideh", 
+    email: "Sepideh@gmail.com",
+    password: "password",
+    first_name: "Sapideh",
     last_name: "S",
     age: 25,
     city: "Oslo",
@@ -70,9 +70,9 @@ puts "created!"
 photo_four = URI.open('https://images.unsplash.com/photo-1613145997970-db84a7975fbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3058&q=80')
 
 user_four = User.new(
-    email: "chris@gmail.com", 
-    password: "password", 
-    first_name: "Chris", 
+    email: "chris@gmail.com",
+    password: "password",
+    first_name: "Chris",
     last_name: "H",
     age: 25,
     city: "Oslo",
@@ -125,7 +125,7 @@ instrument_three = Instrument.new(
     details: 'quarter size student violin for children',
     year: 2010,
     rate: 35,
-    owner: User.first,
+    owner: User.all.sample,
     address: 'Urho Kekkosen katu 1, 00100 Helsinki'
 )
 instrument_three.photo.attach(io: file_three, filename: 'temp.png', content_type: 'image/png')
@@ -140,7 +140,7 @@ instrument_four = Instrument.new(
     details: 'good student trumpet, small dents',
     year: 2009,
     rate: 20,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Mannerheimintie 14–20, 00100 Helsinki'
 )
 instrument_four.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
@@ -155,7 +155,7 @@ instrument_five = Instrument.new(
     details: 'professional french horn',
     year: 2011,
     rate: 40,
-    owner: User.last,
+    owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
 instrument_five.photo.attach(io: file_five, filename: 'temp.png', content_type: 'image/png')
@@ -170,7 +170,7 @@ instrument_six = Instrument.new(
     year: 2015,
     details: 'nice drums',
     rate: 25,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Rudi-Dutschke-Straße 26, 10969 Berlin, Germany'
 )
 instrument_six.photo.attach(io: file_six, filename: 'temp.png', content_type: 'image/png')
@@ -185,7 +185,7 @@ instrument_seven = Instrument.new(
     details: 'good tuba',
     year: 2009,
     rate: 25,
-    owner: User.first,
+    owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
 instrument_seven.photo.attach(io: file_seven, filename: 'temp.png', content_type: 'image/png')
@@ -200,7 +200,7 @@ instrument_nine = Instrument.new(
     details: 'professional flute, split E mechanism',
     year: 2016,
     rate: 60,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Nervanderinkatu 1300100 Helsinki'
 )
 instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
@@ -215,7 +215,7 @@ instrument_eight = Instrument.new(
     details: 'cool drum',
     year: 2009,
     rate: 18,
-    owner: User.first,
+    owner: User.all.sample,
     address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
 )
 instrument_eight.photo.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')
