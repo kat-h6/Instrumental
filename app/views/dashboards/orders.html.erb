@@ -14,30 +14,34 @@
                   <%= cl_image_tag instrument.photo.key %>
                 </div>
               <div class="inner-content">
+                <h2><%= instrument.name %></h2>
                 <p>Renter: <%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
-                <p>Dates:<%= booking.start_date %> - <%= booking.end_date %></p>
+                <p>Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
+                      </div>
               <div class="status">
                 <% if booking.status == "pending" %>
+                  <p>Status: pending</p>
                   <%= simple_form_for booking do |f| %>
                     <%= f.input :status, as: :hidden, :input_html => { :value => "accepted" } %>
                     <%= f.button :submit, "accept" %>
                   <% end %>
                   <%= simple_form_for booking do |f| %>
                     <%= f.input :status, as: :hidden, :input_html => { :value => "rejected" } %>
-                    <%= f.button :submit, "reject" %>
+                    <%= f.button :submit, "reject", class: "blue-btn" %>
                   <% end %>
                 <% else %>
-                  <p> Status:<%= booking.status %></p>
+                  <p> Status: <%= booking.status %></p>
                 <% end %>
                 <%= link_to 'Remove', booking_path(booking), method: :delete,
                 data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
               </div>
+              </div>
             <% end %>
         <% end %>
-      </div>
-    </div>
   </div>
 </div>
+<div class="instruments">
+  <h2>Listed Instruments</h2>
   <div class="list-wrapper">
         <% @instruments.each do |instrument| %>
           <div class="list-item">
@@ -53,4 +57,5 @@
         <% end %>
       </div>
     <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+  </div>
 </div>

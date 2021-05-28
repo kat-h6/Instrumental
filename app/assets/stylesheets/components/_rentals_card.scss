@@ -1,5 +1,6 @@
 .list-wrapper {
   margin: 50px auto;
+  margin-top: 16px;
 }
 
 .d-flex {
@@ -38,4 +39,13 @@
   height: 250px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 16px;
+}
+
+.blue-btn {
+  color: blue;
+  text-indent: none;
+}
+
+.request {
+  margin-top: 24px;
 }
