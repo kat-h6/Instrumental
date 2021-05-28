@@ -38,12 +38,29 @@
   background: white;
   height: 250px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  position: relative;
 }
 
 .blue-btn {
   color: blue;
   text-indent: none;
+  padding: 0;
+}
+
+.status {
+  // width: 15%;
+  // display: flex;
+  // justify-content: space-between;
+  text-align: right;
+  position: absolute;
+  right: 32px;
+}
+
+.link {
+  position: absolute;
+  bottom: -24px;
+  right: 32px;
 }
 
 .request {
