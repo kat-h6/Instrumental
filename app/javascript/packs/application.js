@@ -35,12 +35,19 @@ import { initStarRating } from '../plugins/init_star_rating';
 import {initAutocomplete} from '../plugins/init_autocomplete';
 import { initFlatpickr } from "../plugins/flatpickr";
 
+import { messageScroll } from '../plugins/message_scroll';
+import { initConversationCable } from '../channels/conversation_channel';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   initStarRating();
   initFlatpickr();
+
+  initConversationCable();
+  messageScroll();
+
   // Call your functions here, e.g:
   // initSelect2();
 }

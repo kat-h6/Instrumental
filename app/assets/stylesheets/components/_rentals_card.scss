@@ -1,0 +1,41 @@
+.list-wrapper {
+  margin: 50px auto;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner-img img {
+  width: 200px;
+  padding-right: 20px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.inner-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.inner-content p {
+  display: block;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
+
+.list-item {
+  display: flex;
+  background-color: #fff;
+  background: white;
+  height: 250px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 16px;
+}
