@@ -1,0 +1,35 @@
+<h1 style="text-align:center"><%= @user.first_name %> <%= @user.last_name %></h1>
+<div class="container d-flex mt-4">
+
+  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="ml-4">
+
+	    <p>Age: <%= @user.age %></p>
+	    <p>City: <%= @user.city %></p>
+	    <p>Occupation: <%= @user.occupation %></p>
+	    <p>About me: <%= @user.about_me %></p>
+	    
+	</div>
+</div>
+
+<div class="container mt-4">
+	<p>My instruments</p>
+	<% @user.instruments.each do |instrument| %>
+	    <div class="container d-flex mt-4">
+		  	<%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
+			<div class="row">
+			  	<div class="col-12">
+
+				    <p>Category: <%= instrument.category %></p>
+				    <p>Year: <%= instrument.year %></p>
+				    <p>Rate: €<%= instrument.rate %>/day</p>
+				    <p>Address: <%= instrument.address %></p>
+				    <p>Contact: <%= link_to "#{instrument.owner.first_name} #{instrument.owner.last_name}", new_personal_message_path(receiver_id:instrument.owner) %></p>
+
+				    <%= link_to 'Book', new_instrument_booking_path(instrument), class: 'btn btn-success mb-4' %><br>
+				    <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
