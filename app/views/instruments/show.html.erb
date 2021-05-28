@@ -12,5 +12,7 @@
 
     <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success mb-4' %><br>
     <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
+<%= link_to "Owner's profile", profile_path(@instrument.owner), class: 'btn btn-primary' %>
+
   </div>
 </div>
