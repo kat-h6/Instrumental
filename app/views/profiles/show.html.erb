@@ -1,7 +1,7 @@
 <h1 style="text-align:center"><%= @user.first_name %> <%= @user.last_name %></h1>
 <div class="container d-flex mt-4">
 
-  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @user.photo.key, height: 400, width: 300, crop: :fill %>
   <div class="ml-4">
 
 	    <p>Age: <%= @user.age %></p>
@@ -12,14 +12,16 @@
 	</div>
 </div>
 
+
 <div class="container mt-4">
-	<p>My instruments</p>
+	<h1>My instruments</h1>
 	<% @user.instruments.each do |instrument| %>
 	    <div class="container d-flex mt-4">
 		  	<%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
 			<div class="row">
 			  	<div class="col-12">
 
+			  		<h3>Name: <%= instrument.name %></h3>
 				    <p>Category: <%= instrument.category %></p>
 				    <p>Year: <%= instrument.year %></p>
 				    <p>Rate: €<%= instrument.rate %>/day</p>
