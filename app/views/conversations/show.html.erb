@@ -1,6 +1,8 @@
 <div class="container">
-  <h1>Chatting with <%= @conversation.with(current_user).first_name %> <%= @conversation.with(current_user).last_name %></h1>
-
+  <div class="avatar-name">
+    <h1>Chatting with <%= @conversation.with(current_user).first_name %> <%= @conversation.with(current_user).last_name %></h1>
+    <%= cl_image_tag "#{@conversation.with(current_user).photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar-large" %>
+  </div>
   <div id="conversation-main">
     <div id="conversation-body">
       <div class="container" id="messages" data-conversation-id="<%= @conversation.id %>">

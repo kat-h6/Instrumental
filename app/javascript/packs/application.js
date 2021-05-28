@@ -44,10 +44,9 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initStarRating();
   initFlatpickr();
-
   initConversationCable();
   messageScroll();
 
-  // Call your functions here, e.g:
-  // initSelect2();
-}
+})
+
+

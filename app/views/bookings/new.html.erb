@@ -1,13 +1,15 @@
-<h3>Book an instrument</h3>
+<div class="container">
+  <h3>Book an instrument</h3>
 
   <%= simple_form_for [ @instrument, @booking ] do |f| %>
-          <p> <%=  @instrument.rate %></p>
+          <p> Rate: €<%=  @instrument.rate %>/day</p>
           <%= f.input :details %>
           <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: {class: "datepicker"} %>
-  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker"}%>          <%= f.submit "Make a reservation", class: 'btn btn-success mb-4' %>
+  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", input_html: {class: "datepicker"}%>
+  <%= f.submit "Make a reservation", class: 'btn btn-success mb-4' %>
   <% end %>
+</div>
 
 
 
-   
 
