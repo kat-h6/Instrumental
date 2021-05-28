@@ -8,7 +8,7 @@
     <p>Year: <%= @instrument.year %></p>
     <p>Rate: €<%= @instrument.rate %>/day</p>
     <p>Address: <%= @instrument.address %></p>
-    <p>Contact: <%= link_to "#{@owner.first_name} #{@owner.last_name}", new_personal_message_path(receiver_id:@owner) %></p>
+    <p><%= link_to "Message #{@owner.first_name} #{@owner.last_name}", new_personal_message_path(receiver_id:@owner) %></p>
 
     <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success mb-4' %><br>
     <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
