@@ -76,8 +76,8 @@ user_four = User.new(
     last_name: "H",
     age: 25,
     city: "Oslo",
-    occupation: "Hard worker",
-    about_me: "I play the violin"
+    occupation: "Instrument repairman",
+    about_me: "I have been repairing woodwind instruments for five years. I have my Muramatsu certification."
     )
 user_four.photo.attach(io: photo_four, filename: 'temp.png', content_type: 'image/png')
 user_four.save!
