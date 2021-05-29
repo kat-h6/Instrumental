@@ -96,7 +96,8 @@
 }
 
 .category-tag input[type="radio"] {
-  display: none;
+  position: absolute;
+  transform: scale(0);
 }
 
 .category-tag label {
@@ -111,20 +112,20 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(22, 127, 251, 0.20) 0px 0px 0px 1px;
 }
 
-.category-tag label:hover {
-  max-width: 110px;
-  border-radius: 25px;
-  padding: 5px 10px;
-  margin: 5px;
-  color: #fff;
-  text-align: center;
-  display: inline-flex;
-  background-color: #167FFB;
-  text-decoration: none;
-  box-shadow: none;
-}
+// .category-tag label:hover {
+//   max-width: 110px;
+//   border-radius: 25px;
+//   padding: 5px 10px;
+//   margin: 5px;
+//   color: #fff;
+//   text-align: center;
+//   display: inline-flex;
+//   background-color: #167FFB;
+//   text-decoration: none;
+//   box-shadow: none;
+// }
 
-.category-tag input[type="radio"]:checked+label {
+.category-tag input[type="radio"]:checked + label {
   max-width: 110px;
   border-radius: 25px;
   padding: 5px 10px;
@@ -141,8 +142,7 @@ label {
   margin: 0;
 }
 
-.sticky {
-    position: -webkit-sticky;
+.map-container {
     position: sticky;
     top: 0;
   }
