@@ -25,10 +25,12 @@
           <div class="menu-items">
             <ul>
               <li><%= link_to 'Browse instruments', instruments_path %></li>
-              <li><%= link_to 'My rentals', rentals_path %></li>
-              <li><%= link_to 'My instruments', orders_path %></li>
-              <li><%= link_to 'Messages', conversations_path %></li>
-              <li><%= link_to 'My profile', profile_path(current_user) %></li>
+              <% if current_user %>
+                <li><%= link_to 'My rentals', rentals_path %></li>
+                <li><%= link_to 'My instruments', orders_path %></li>
+                <li><%= link_to 'Messages', conversations_path %></li>
+                <li><%= link_to 'My profile', profile_path(current_user) %></li>
+              <% end %>
             </ul>
           </div>
 
