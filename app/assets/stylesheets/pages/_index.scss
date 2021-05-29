@@ -140,3 +140,9 @@
 label {
   margin: 0;
 }
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }

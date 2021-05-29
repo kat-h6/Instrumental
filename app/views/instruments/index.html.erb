@@ -43,8 +43,8 @@
 </div>
 
 <div class="col-xs-12 col-md-4 col-lg-6">
-  <div class="m-auto", id="map"
-     style="width: auto; height: 100vh; position: -webkit-sticky; position: sticky; top: 25px;"
+  <div class="m-auto sticky", id="map"
+     style="width: 100%; height: 100vh;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
