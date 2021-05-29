@@ -1,7 +1,11 @@
 <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
 <div class="instrument-show-container">
   <div class="instrument-image">
-    <%= cl_image_tag @instrument.photo.key, height: 400, width: 550, crop: :fill %>
+    <div data-slick='{"slidesToShow": <% @instrument.photos.count %>, "slidesToScroll": <% @instrument.photos.count %>}'>
+      <% @instrument.photos.each do |photo| %>
+        <%= cl_image_tag @instrument.photo.key, height: 400, width: 550, crop: :fill %>
+      <% end %>
+    </div>
   </div>
   <div class="instrument-details">
     <h2 class="mb-4"><%= @instrument.name %> <%= @instrument.model %></h2>
