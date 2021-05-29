@@ -2,11 +2,9 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    if params[:query].present?
-      @instruments = Instrument.search_by_name_model_category(params[:query])
-    else
-      @instruments = Instrument.all
-    end
+    @instruments = Instrument.all
+    @instruments = @instruments.search_by_name_model_category(params[:query]) if params[:query].present?
+    @instruments = @instruments.where(category: params[:category]) if params[:category].present?
 
     @markers = @instruments.geocoded.map do |instrument|
       {

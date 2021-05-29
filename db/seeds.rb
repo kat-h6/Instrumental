@@ -97,7 +97,7 @@ instrument_one = Instrument.new(
     owner: User.last,
     address: 'Schweigaards gate 34 C, 0191 Oslo, Norway'
 )
-instrument_one.photo.attach(io: file_one, filename: 'temp.png', content_type: 'image/png')
+instrument_one.photos.attach(io: file_one, filename: 'temp.png', content_type: 'image/png')
 instrument_one.save!
 puts "created!"
 
@@ -113,14 +113,16 @@ instrument_two = Instrument.new(
     owner: User.first,
     address: 'Mannerheimintie 13 A, 00100 Helsinki'
 )
-instrument_two.photo.attach(io: file_two, filename: 'temp.png', content_type: 'image/png')
+instrument_two.photos.attach(io: file_two, filename: 'temp.png', content_type: 'image/png')
 instrument_two.save!
 puts "created!"
 
 file_three = URI.open('https://images.unsplash.com/photo-1558556405-3071bd8d3ee6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=936&q=80')
+file_three_image_two = URI.open('https://images.unsplash.com/photo-1604057982108-e9a1a47ad80a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+file_three_image_three = URI.open('https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
 instrument_three = Instrument.new(
     name: 'violin',
-    model: 'Yamaha',
+    model: 'yamaha',
     category: 'strings',
     details: 'quarter size student violin for children',
     year: 2010,
@@ -128,7 +130,9 @@ instrument_three = Instrument.new(
     owner: User.all.sample,
     address: 'Urho Kekkosen katu 1, 00100 Helsinki'
 )
-instrument_three.photo.attach(io: file_three, filename: 'temp.png', content_type: 'image/png')
+instrument_three.photos.attach(io: file_three, filename: 'temp.png', content_type: 'image/png')
+instrument_three.photos.attach(io: file_three_image_two, filename: 'temp.png', content_type: 'image/png')
+instrument_three.photos.attach(io: file_three_image_three, filename: 'temp.png', content_type: 'image/png')
 instrument_three.save!
 puts "created!"
 
@@ -143,7 +147,7 @@ instrument_four = Instrument.new(
     owner: User.all.sample,
     address: 'Mannerheimintie 14–20, 00100 Helsinki'
 )
-instrument_four.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
+instrument_four.photos.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
 instrument_four.save!
 puts "created!"
 
@@ -158,7 +162,7 @@ instrument_five = Instrument.new(
     owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
-instrument_five.photo.attach(io: file_five, filename: 'temp.png', content_type: 'image/png')
+instrument_five.photos.attach(io: file_five, filename: 'temp.png', content_type: 'image/png')
 instrument_five.save!
 puts 'created!'
 
@@ -173,7 +177,7 @@ instrument_six = Instrument.new(
     owner: User.all.sample,
     address: 'Rudi-Dutschke-Straße 26, 10969 Berlin, Germany'
 )
-instrument_six.photo.attach(io: file_six, filename: 'temp.png', content_type: 'image/png')
+instrument_six.photos.attach(io: file_six, filename: 'temp.png', content_type: 'image/png')
 instrument_six.save!
 puts 'created!'
 
@@ -188,11 +192,13 @@ instrument_seven = Instrument.new(
     owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
-instrument_seven.photo.attach(io: file_seven, filename: 'temp.png', content_type: 'image/png')
+instrument_seven.photos.attach(io: file_seven, filename: 'temp.png', content_type: 'image/png')
 instrument_seven.save!
 puts 'created!'
 
 file_nine = URI.open('https://images.unsplash.com/photo-1562808191-76e71b08a870?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
+file_nine_image_two = URI.open('https://images.unsplash.com/photo-1514213949578-58fe7b8ff146?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
+file_nine_image_three = URI.open('https://images.unsplash.com/photo-1601794391361-714374e6b618?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80')
 instrument_nine = Instrument.new(
     name: 'flute',
     model: 'muramatsu EX with b foot joint',
@@ -200,10 +206,12 @@ instrument_nine = Instrument.new(
     details: 'professional flute, split E mechanism',
     year: 2016,
     rate: 60,
-    owner: User.all.sample,
+    owner: User.last,
     address: 'Nervanderinkatu 1300100 Helsinki'
 )
-instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
+instrument_nine.photos.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
+instrument_nine.photos.attach(io: file_nine_image_two, filename: 'temp.png', content_type: 'image/png')
+instrument_nine.photos.attach(io: file_nine_image_three, filename: 'temp.png', content_type: 'image/png')
 instrument_nine.save!
 
 
@@ -218,10 +226,9 @@ instrument_eight = Instrument.new(
     owner: User.all.sample,
     address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
 )
-instrument_eight.photo.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')
+instrument_eight.photos.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')
 instrument_eight.save!
 puts "created!"
-
 
 
 puts 'Finished!'

@@ -1,5 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "instrument_show";
 
 .d-flex {
   display: flex;
@@ -30,7 +31,7 @@
   background-color: #fff;
   height: 80px;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .nav-container {
   width: 100%;
@@ -45,6 +46,10 @@
   padding: 0 50px;
 }
 
+.menu-wrapper-right .btn {
+  margin: 0 20px;
+}
+
 .menu-items ul {
   width: 630px;
   display: inline-flex;
@@ -57,4 +62,82 @@
   text-decoration: none;
   list-decoration: none;
   list-style-type: none;
+}
+.instrument-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 50px;
+}
+
+.search-box .form-group {
+  display: flex;
+}
+
+.search-box .form-group input:not(:last-child) {
+  margin-right: 20px;
+}
+
+.search-box {
+  display: block!important;
+  margin: 25px 0;
+  padding: 0 50px;
+}
+
+#map {
+  height: 100vh!important;
+  position: sticky;
+  top: 0;
+  margin: 0!important;
+}
+
+.list-count p {
+  text-align: right;
+  padding: 0 50px;
+  color: grey;
+}
+
+.category-tag input[type="radio"] {
+  display: none;
+}
+
+.category-tag label {
+  max-width: 110px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 5px;
+  color: grey;
+  text-align: center;
+  display: inline-flex;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(22, 127, 251, 0.20) 0px 0px 0px 1px;
+}
+
+.category-tag label:hover {
+  max-width: 110px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 5px;
+  color: #fff;
+  text-align: center;
+  display: inline-flex;
+  background-color: #167FFB;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.category-tag input[type="radio"]:checked+label {
+  max-width: 110px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 5px;
+  color: #fff;
+  text-align: center;
+  display: inline-flex;
+  background-color: #167FFB;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+label {
+  margin: 0;
 }

@@ -1,7 +1,11 @@
 <div class="container">
   <div class="avatar-name">
-    <h1>Chatting with <%= @conversation.with(current_user).first_name %> <%= @conversation.with(current_user).last_name %></h1>
-    <%= cl_image_tag "#{@conversation.with(current_user).photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar-large" %>
+    <h1>Chatting with <%= link_to(profile_path(@conversation.with(current_user))) do %>
+      <%= @conversation.with(current_user).first_name %> <%= @conversation.with(current_user).last_name %></h1>
+    <% end %>
+    <%= link_to(profile_path(@conversation.with(current_user))) do %>
+      <%= cl_image_tag "#{@conversation.with(current_user).photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar-large" %>
+    <% end %>
   </div>
   <div id="conversation-main">
     <div id="conversation-body">
@@ -13,7 +17,7 @@
     <%= form_for @personal_message do |f| %>
       <%= hidden_field_tag 'conversation_id', @conversation.id %>
 <!--       <%= f.label :body %> -->
-      <%= f.text_area :body %><br />
+      <%= f.text_area :body, id: 'text-full-width' %><br />
 
       <%= f.submit 'New Message', class: 'btn btn-primary' %>
     <% end %>
