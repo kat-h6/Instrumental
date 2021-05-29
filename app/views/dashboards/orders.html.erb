@@ -8,38 +8,42 @@
       <h2>Rental Requests</h2>
         <div class="list-wrapper">
           <% @instruments.each do |instrument| %>
-            <% instrument.bookings.each do |booking| %>
-              <div class="list-item">
-                <div class="inner-img">
-                  <%= cl_image_tag instrument.photo.key %>
-                </div>
-              <div class="inner-content">
-                <h2><%= link_to "#{instrument.name}", instrument_path(instrument) %></h2>
-                <p>Renter: <%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
-                <p>Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
-                <% if booking.status == "pending" %>
-                  <p><strong>Status: pending</strong></p>
-                <% else %>
-                  <p><strong>Status: <%= booking.status %></strong></p>
+              <% if instrument.bookings.count == 0 %>
+                <p>You have no rental requests</p>
+              <% else %>
+                <% instrument.bookings.each do |booking| %>
+                  <div class="list-item">
+                    <div class="inner-img">
+                      <%= cl_image_tag instrument.photo.key %>
+                    </div>
+                  <div class="inner-content">
+                    <h2><%= link_to "#{instrument.name}", instrument_path(instrument) %></h2>
+                    <p>Renter: <%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
+                    <p>Dates: <%= booking.start_date %> - <%= booking.end_date %></p>
+                    <% if booking.status == "pending" %>
+                      <p><strong>Status: pending</strong></p>
+                    <% else %>
+                      <p><strong>Status: <%= booking.status %></strong></p>
+                    <% end %>
+                  </div>
+                    <div class="status">
+                      <% if booking.status == "pending" %>
+                        <%= simple_form_for booking do |f| %>
+                          <%= f.input :status, as: :hidden, :input_html => { :value => "accepted" } %>
+                          <%= f.button :submit, "accept", class: "blue-btn" %>
+                        <% end %>
+                        <%= simple_form_for booking do |f| %>
+                          <%= f.input :status, as: :hidden, :input_html => { :value => "rejected" } %>
+                          <%= f.button :submit, "reject", class: "blue-btn" %>
+                        <% end %>
+                      <% end %>
+                    </div>
+                    <div class="link">
+                      <%= link_to 'Remove', booking_path(booking), method: :delete,
+                      data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
+                    </div>
+                  </div>
                 <% end %>
-              </div>
-                <div class="status">
-                  <% if booking.status == "pending" %>
-                    <%= simple_form_for booking do |f| %>
-                      <%= f.input :status, as: :hidden, :input_html => { :value => "accepted" } %>
-                      <%= f.button :submit, "accept", class: "blue-btn" %>
-                    <% end %>
-                    <%= simple_form_for booking do |f| %>
-                      <%= f.input :status, as: :hidden, :input_html => { :value => "rejected" } %>
-                      <%= f.button :submit, "reject", class: "blue-btn" %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="link">
-                  <%= link_to 'Remove', booking_path(booking), method: :delete,
-                  data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
-                </div>
-              </div>
             <% end %>
           <% end %>
         </div>
