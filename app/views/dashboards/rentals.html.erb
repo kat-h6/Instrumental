@@ -10,7 +10,7 @@
       <% @bookings.each do |booking| %>
       <div class="list-item">
             <div class="inner-img">
-              <%= cl_image_tag booking.instrument.photo.key %>
+              <%= cl_image_tag booking.instrument.photos.first.key %>
             </div>
             <div class="inner-content">
               <h4>Name: <%= booking.instrument.name %></h4>
