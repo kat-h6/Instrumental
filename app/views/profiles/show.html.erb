@@ -7,6 +7,7 @@
 	    <h3>City: <%= @user.city %></h3>
 	    <h3>Occupation: <%= @user.occupation %></h3>
 	    <h3>About me: <%= @user.about_me %></h3>
+
 	    <%= link_to "Message #{@user.first_name} #{@user.last_name}", new_personal_message_path(receiver_id:@user) %>
 
 	</div>
@@ -22,23 +23,23 @@
 	<% @user.instruments.each do |instrument| %>
 	<div class="list-item">
 	    <div class="inner-img">
-		  	<%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
+		  	<%= cl_image_tag instrument.photos.first.key, height: 300, width: 400, crop: :fill %>
 		</div>
 			<div class="row">
 			  	<div class="col-12">
 			  		<div class="inner-content">
 
-			  		<h3><%= instrument.name %></h3>
+			  		<h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
 				    <h5>Category: <%= instrument.category %></h5>
 				    <h5>Year: <%= instrument.year %></h5>
 				    <h5>Rate: €<%= instrument.rate %>/day</h5>
 				    <h5>Address: <%= instrument.address %></h5>
-				   </div> 
+				   </div>
 				</div>
 			</div>
 			</div>
 		<% end %>
 		</div>
-	
+
 </div>
 
