@@ -3,7 +3,7 @@
   <div class="instrument-image">
     <div data-slick='{"slidesToShow": <% @instrument.photos.count %>, "slidesToScroll": <% @instrument.photos.count %>}'>
       <% @instrument.photos.each do |photo| %>
-        <%= cl_image_tag @instrument.photo.key, height: 400, width: 550, crop: :fill %>
+        <div><%= cl_image_tag @instrument.photo.key, height: 400, width: 550, crop: :fill %></div>
       <% end %>
     </div>
   </div>
