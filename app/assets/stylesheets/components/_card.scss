@@ -1,0 +1,20 @@
+.card-container {
+  width: 275px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.card-container img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-inner-info {
+  padding: 20px;
+}
+
+.card-container .card-inner-info h3, a { color: black; text-decoration: none; }
+.card-container .card-inner-info p { color: grey!important; text-decoration: none; }
