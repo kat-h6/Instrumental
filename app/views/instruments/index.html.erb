@@ -27,7 +27,9 @@
     <div class="instrument-list">
     <% @instruments.each do |instrument| %>
       <div class="card-container">
-        <%= cl_image_tag instrument.photo.key, height: 200, width: 200, crop: :fill %>
+        <% if instrument.photo.attached? %>
+          <%= cl_image_tag instrument.photo.key, height: 200, width: 200, crop: :fill %>
+        <% end %>
         <div class="card-inner-info">
         <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
         <div class="d-flex">
