@@ -197,6 +197,8 @@ instrument_seven.save!
 puts 'created!'
 
 file_nine = URI.open('https://images.unsplash.com/photo-1562808191-76e71b08a870?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
+file_nine_image_two = URI.open('https://images.unsplash.com/photo-1514213949578-58fe7b8ff146?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
+file_nine_image_three = URI.open('https://images.unsplash.com/photo-1601794391361-714374e6b618?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80')
 instrument_nine = Instrument.new(
     name: 'flute',
     model: 'muramatsu EX with b foot joint',
@@ -204,10 +206,12 @@ instrument_nine = Instrument.new(
     details: 'professional flute, split E mechanism',
     year: 2016,
     rate: 60,
-    owner: User.all.sample,
+    owner: User.last,
     address: 'Nervanderinkatu 1300100 Helsinki'
 )
 instrument_nine.photos.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
+instrument_nine.photos.attach(io: file_nine_image_two, filename: 'temp.png', content_type: 'image/png')
+instrument_nine.photos.attach(io: file_nine_image_three, filename: 'temp.png', content_type: 'image/png')
 instrument_nine.save!
 
 

@@ -8,7 +8,7 @@
 	    <h3>City: <%= @user.city %></h3>
 	    <h3>Occupation: <%= @user.occupation %></h3>
 	    <h3>About me: <%= @user.about_me %></h3>
-	    
+
 	</div>
 </div>
 
@@ -21,7 +21,7 @@
 	<% @user.instruments.each do |instrument| %>
 	<div class="list-item">
 	    <div class="inner-img">
-		  	<%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
+		  	<%= cl_image_tag instrument.photos.first.key, height: 300, width: 400, crop: :fill %>
 		</div>
 			<div class="row">
 			  	<div class="col-12">
@@ -32,12 +32,12 @@
 				    <h5>Year: <%= instrument.year %></h5>
 				    <h5>Rate: €<%= instrument.rate %>/day</h5>
 				    <h5>Address: <%= instrument.address %></h5>
-				   </div> 
+				   </div>
 				</div>
 			</div>
 			</div>
 		<% end %>
 		</div>
-	
+
 </div>
 
