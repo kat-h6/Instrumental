@@ -3,7 +3,7 @@
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-right .navbar-collapse {
   flex-grow: 0;
 }
 
@@ -27,6 +27,10 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+.navbar .menu-items a {
+  color: #42515a!important;
+  font-weight: 600;
 }
 
 .menu-items ul {

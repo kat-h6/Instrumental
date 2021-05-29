@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="row">
 <div class="col-xs-12 col-md-8 col-lg-6">
   <div class="search-box">
       <h1>Instrumental</h1>
@@ -13,8 +13,8 @@
           </div>
           <% Instrument::CATEGORIES.each do |category| %>
             <span class="category-tag" role="group" aria-label="Basic radio toggle button group">
-              <%= label_tag "category", category.capitalize %>
               <%= radio_button_tag "category", category %>
+              <%= label_tag "category_#{category}", category.capitalize %>
             </span>
           <% end %>
         <% end %>
@@ -31,7 +31,7 @@
           <%= cl_image_tag instrument.photos.first.key, height: 200, width: 200, crop: :fill %>
         <% end %>
         <div class="card-inner-info">
-        <h3><%= link_to instrument.name, instrument_path(instrument) %></h3>
+        <h3><%= link_to instrument.name.capitalize, instrument_path(instrument) %></h3>
         <div class="d-flex">
             <p><%= instrument.model %></p>
             <p>€<%= instrument.rate %>/day</p>
@@ -43,9 +43,9 @@
 </div>
 
 <div class="col-xs-12 col-md-4 col-lg-6">
-  <div class="m-auto", id="map"
-     style="width: auto; height: 100vh; position: -webkit-sticky; position: sticky; top: 25px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    <div class="m-auto", id="map"
+       style="width: 100%; height: 100vh;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>
