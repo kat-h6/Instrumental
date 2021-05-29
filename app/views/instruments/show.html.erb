@@ -1,18 +1,23 @@
-<h1 style="text-align:center"><%= @instrument.name %> <%= @instrument.model %></h1>
-<div class="container d-flex mt-4">
-
-  <%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="ml-4">
-
-    <p>Category: <%= @instrument.category %></p>
-    <p>Year: <%= @instrument.year %></p>
-    <p>Rate: €<%= @instrument.rate %>/day</p>
-    <p>Address: <%= @instrument.address %></p>
-    <p><%= link_to "Message #{@owner.first_name} #{@owner.last_name}", new_personal_message_path(receiver_id:@owner) %></p>
-
-    <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success mb-4' %><br>
-    <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
-    <%= link_to "Owner's profile", profile_path(@instrument.owner), class: 'btn btn-primary' %>
+<%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
+<div class="instrument-show-container">
+  <div class="instrument-image">
+    <%= cl_image_tag @instrument.photo.key, height: 400, width: 550, crop: :fill %>
+  </div>
+  <div class="instrument-details">
+    <h2 class="mb-4"><%= @instrument.name %> <%= @instrument.model %></h2>
+    <p><strong>Category: </strong><%= @instrument.category %></p>
+    <p><strong>Year: </strong><%= @instrument.year %></p>
+    <p><strong>Rate: </strong>€<%= @instrument.rate %>/day</p>
+    <p><strong>Address: </strong><%= @instrument.address %></p>
+    <div class="owner-details">
+      <% if @owner.photo.attached? %>
+        <%= link_to(profile_path(@instrument.owner)) do %>
+          <%= cl_image_tag "#{@owner.photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar ml-0" %>
+        <% end %>
+      <% end %>
+      <p><%= link_to "Message #{@owner.first_name} #{@owner.last_name}", new_personal_message_path(receiver_id:@owner), class: "ml-3" %></p>
+    </div>
+    <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success mt-4' %><br>
 
   </div>
 </div>

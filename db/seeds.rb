@@ -118,9 +118,11 @@ instrument_two.save!
 puts "created!"
 
 file_three = URI.open('https://images.unsplash.com/photo-1558556405-3071bd8d3ee6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=936&q=80')
+file_three_image_two = URI.open('https://images.unsplash.com/photo-1604057982108-e9a1a47ad80a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+file_three_image_three = URI.open('https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')
 instrument_three = Instrument.new(
     name: 'violin',
-    model: 'Yamaha',
+    model: 'yamaha',
     category: 'strings',
     details: 'quarter size student violin for children',
     year: 2010,
@@ -129,6 +131,8 @@ instrument_three = Instrument.new(
     address: 'Urho Kekkosen katu 1, 00100 Helsinki'
 )
 instrument_three.photo.attach(io: file_three, filename: 'temp.png', content_type: 'image/png')
+instrument_three.photo.attach(io: file_three_image_two, filename: 'temp.png', content_type: 'image/png')
+instrument_three.photo.attach(io: file_three_image_three, filename: 'temp.png', content_type: 'image/png')
 instrument_three.save!
 puts "created!"
 
