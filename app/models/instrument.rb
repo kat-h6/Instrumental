@@ -1,5 +1,5 @@
 class Instrument < ApplicationRecord
-  CATEGORIES = %w[brass keyboard percussion string woodwind].freeze
+  CATEGORIES = %w[woodwinds strings brass percussion guitar keyboard other].freeze
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
   has_many :bookings, dependent: :destroy
   has_one_attached :photo
@@ -12,7 +12,6 @@ class Instrument < ApplicationRecord
   validates :rate, presence: true, numericality: {
     greater_than_or_equal_to: 0
   }
-  has_many :bookings
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -27,4 +26,10 @@ class Instrument < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+    def unavailable_dates
+      bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+      end
+    end
 end

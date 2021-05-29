@@ -15,22 +15,22 @@
   background-color: #fff;
   height: 80px;
   align-items: center;
-  margin-bottom: 50px;
 }
+
 .nav-container {
-  width: 1920px;
+  width: 100%;
   justify-content: space-between;
 }
 
 .menu-wrapper {
   display: flex;
-  width: 1920px;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
 }
 
 .menu-items ul {
-  width: 500px;
+  width: 630px;
   display: inline-flex;
   justify-content: space-between;
   margin: 0;

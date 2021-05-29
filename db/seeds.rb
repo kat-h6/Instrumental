@@ -12,15 +12,80 @@
 
 require 'faker'
 require 'open-uri'
+Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
 
-User.create(email: "kathy@gmail.com", password: "password", first_name: "Kathy", last_name: "H")
-User.create(email: "tavis@gmail.com", password: "password", first_name: "Tavis", last_name: "D")
-User.create(email: "Sepideh@gmail.com", password: "password", first_name: "Sapideh", last_name: "S")
-User.create(email: "chris@gmail.com", password: "password", first_name: "Chris", last_name: "H")
+
+puts "destroyed all"
+
+photo_one = URI.open('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
+
+user_one = User.new(
+    email: "kathy@gmail.com",
+    password: "password",
+    first_name: "Kathy",
+    last_name: "H",
+    age: 25,
+    city: "Helsinki",
+    occupation: "student",
+    about_me: "I play the flute"
+    )
+user_one.photo.attach(io: photo_one, filename: 'temp.png', content_type: 'image/png')
+user_one.save!
+puts "created!"
+
+photo_two = URI.open('https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
+
+user_two = User.new(
+    email: "tavis@gmail.com",
+    password: "password",
+    first_name: "Tavis",
+    last_name: "D",
+    age: 25,
+    city: "Oslo",
+    occupation: "hard worker",
+    about_me: "I play the drums"
+    )
+user_two.photo.attach(io: photo_two, filename: 'temp.png', content_type: 'image/png')
+user_two.save!
+puts "created!"
+
+photo_three = URI.open('https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60')
+
+user_three = User.new(
+    email: "Sepideh@gmail.com",
+    password: "password",
+    first_name: "Sapideh",
+    last_name: "S",
+    age: 25,
+    city: "Oslo",
+    occupation: "hard worker",
+    about_me: "I play the drums"
+    )
+user_three.photo.attach(io: photo_three, filename: 'temp.png', content_type: 'image/png')
+user_three.save!
+puts "created!"
+
+photo_four = URI.open('https://images.unsplash.com/photo-1613145997970-db84a7975fbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3058&q=80')
+
+user_four = User.new(
+    email: "chris@gmail.com",
+    password: "password",
+    first_name: "Chris",
+    last_name: "H",
+    age: 25,
+    city: "Oslo",
+    occupation: "hard worker",
+    about_me: "I play the violin"
+    )
+user_four.photo.attach(io: photo_four, filename: 'temp.png', content_type: 'image/png')
+user_four.save!
+puts "created!"
+
 
 file_one = URI.open('https://images.unsplash.com/photo-1567184406952-9f6ba54cb614?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+
 
 instrument_one = Instrument.new(
     name: 'piccolo',
@@ -141,6 +206,21 @@ instrument_nine = Instrument.new(
 instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
 instrument_nine.save!
 
+
+file_eight = URI.open('https://images.unsplash.com/photo-1571327073757-71d13c24de30?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')
+instrument_eight = Instrument.new(
+    name: 'nice drums',
+    model: 'yamaha',
+    category: 'percussion',
+    details: 'cool drum',
+    year: 2009,
+    rate: 18,
+    owner: User.first,
+    address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
+)
+instrument_eight.photo.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')
+instrument_eight.save!
+puts "created!"
 
 
 puts 'Finished!'

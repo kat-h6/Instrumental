@@ -1,48 +1,48 @@
 
 
 <div class="container">
-<div class="d-flex">
-  <h1>My Rentals <% if @bookings.count > 0 %>(<%= @bookings.count %>)<% end %></h1>
-  <%= link_to 'Find an instrument', instruments_path, class: 'btn btn-primary' %>
-</div>
-
-<div class="list-wrapper">
-<% @bookings.each do |booking| %>
-  <div>
-  <div class="list-item">
-    <div class="d-flex">
-      <div class="inner-img">
-      </div>
-
-      <div class="inner-content">
-        <h4>Name: <%= booking.instrument.name %></h4>
-        <div class="d-flex">
-          <p>Booking period: <%= booking.start_date %> - <%= booking.end_date %></p>
-        </div>
-        <p>Price: <%= booking.price %></p>
-        <p>Status: <%= booking.status %></p>
-
-      </div>
-    </div>
-
-    <%#= REVIEWS %>
-
-    <% if booking.end_date < Date.today %>
-    <div class="card">
-      <ul class="list-group">
-        <% booking.reviews.each do |review| %>
-          <li class="list-group-item">
-            <p><%= review.title %></p>
-            <%= @star_checked %>
-            <p><%= review.content %></p>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to 'Leave a review', new_booking_review_path(booking.id), class: 'btn btn-secondary' %>
-    </div>
-    <% end %>
-
+  <div class="d-flex">
+    <h1>My Rentals <% if @bookings.count > 0 %>(<%= @bookings.count %>)<% end %></h1>
+    <%= link_to 'Find an instrument', instruments_path, class: 'btn btn-primary' %>
   </div>
-<% end %>
 
-<%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+  <div class="list-wrapper">
+      <% @bookings.each do |booking| %>
+      <div class="list-item">
+            <div class="inner-img">
+              <%= cl_image_tag booking.instrument.photo.key %>
+            </div>
+            <div class="inner-content">
+              <h4>Name: <%= booking.instrument.name %></h4>
+              <p>Booking period: <%= booking.start_date %> - <%= booking.end_date %></p>
+              <p>Price: <%= booking.price %></p>
+              <p>Status: <%= booking.status %></p>
+              <p>Contact: <%= link_to "#{booking.instrument.owner.first_name} #{booking.instrument.owner.last_name}", new_personal_message_path(receiver_id:booking.instrument.owner) %>
+              </p>
+            </div>
+            <div class="link">
+              <%= link_to 'Remove', booking_path(booking), method: :delete,
+                  data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
+            </div>
+      </div>
+      <%#= REVIEWS %>
+      <% if booking.end_date < Date.today %>
+        <div class="card">
+            <ul class="list-group">
+                <% booking.reviews.each do |review| %>
+                <li class="list-group-item">
+                    <p><%= review.title %></p>
+                    <%= @star_checked %>
+                    <p><%= review.content %></p>
+                </li>
+                <% end %>
+            </ul>
+            <%= link_to 'Leave a review', new_booking_review_path(booking.id), class: 'btn btn-secondary' %>
+        </div>
+
+      <% end %>
+
+    <% end %>
+  </div>
+  <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
+</div>
