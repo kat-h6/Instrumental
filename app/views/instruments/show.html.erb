@@ -1,8 +1,32 @@
+<%#= AVERAGE REVIEW %>
+<% @total_score = 0 %>
+<% @review_counter = 0 %>
+<% @average_review = 0 %>
+<% @instrument.bookings.each do |booking| %>
+  <% booking.reviews.each do |review| %>
+    <% @total_score = review.rating + @total_score %>
+    <% @review_counter += 1 %>
+  <% end %>
+<% end %>
+<% if @review_counter > 0 %>
+  <% @average_review = @total_score / @review_counter %>
+<% end %>
+<%#= /AVERAGE REVIEW %>
+
+
 <h1 style="text-align:center"><%= @instrument.name %> <%= @instrument.model %></h1>
 <div class="container d-flex mt-4">
 
   <%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="ml-4">
+    <% if @average_review > 0 %>
+      <p style="display: inline">Average rating: </p>
+      <% @average_review.times do %>
+        <p style="display: inline" class="bi bi-star"></p>
+      <% end %>
+    <% else %>
+      <p><i>No reviews</i></p>
+    <% end %>
 
     <p>Category: <%= @instrument.category %></p>
     <p>Year: <%= @instrument.year %></p>
@@ -15,4 +39,29 @@
     <%= link_to "Owner's profile", profile_path(@instrument.owner), class: 'btn btn-primary' %>
 
   </div>
+</div>
+<div class="container">
+
+
+<%#= SHOW REVIEWS %>
+<div class="card" style="margin-top: 20px">
+  <% @instrument.bookings.each do |booking| %>
+    <% booking.reviews.each do |review| %>
+      <div class="card" style="padding: 10px">
+        <div class="card-header" style="display:flex; justify-content: space-between; height: 48px">
+      <%= review.title %>
+      <ul style="padding: 0; list-style-type: none">
+        <% review.rating.times do %>
+          <li style="display: inline" class="bi bi-star"></li>
+        <% end %>
+      </ul>
+      </div>
+      <div class="card-body">
+        <%= review.content %>
+        <footer class="blockquote-footer"><%= review.booking.renter.first_name %></footer>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
 </div>
