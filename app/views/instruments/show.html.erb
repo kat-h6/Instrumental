@@ -12,8 +12,10 @@
   <% @average_review = @total_score / @review_counter %>
 <% end %>
 <%#= /AVERAGE REVIEW %>
-    
-<%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
+<div class="container justify-content-end">
+  <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary btn-right' %>
+</div>
+
 <div class="instrument-show-container">
   <div class="instrument-image">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:500px">
