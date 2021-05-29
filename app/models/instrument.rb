@@ -1,10 +1,11 @@
 class Instrument < ApplicationRecord
+  CATEGORIES = %w[woodwinds strings brass percussion guitar keyboard other].freeze
   belongs_to :owner, class_name: 'User', foreign_key: 'owner_id'
   has_many :bookings, dependent: :destroy
   has_many_attached :photos
   validates :name, presence: true
   validates :model, presence: true
-  validates :category, inclusion: { in: %w[woodwinds strings brass percussion guitar keyboard other], allow_nil: false }
+  validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
   validates :year, presence: true
   validates :address, presence: true
 
