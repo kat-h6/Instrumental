@@ -7,13 +7,11 @@
     <div class="request">
       <h2>Rental Requests</h2>
         <div class="list-wrapper">
-          <% if @instruments_with_bookings %>
-              <p>You have no rental requests</p>
-            <% else %>
+              <% @instruments.each do |instrument| %>
                 <% instrument.bookings.each do |booking| %>
                   <div class="list-item">
                     <div class="inner-img">
-                      <%= cl_image_tag instrument.photo.key %>
+                      <%= cl_image_tag instrument.photos.first.key %>
                     </div>
                   <div class="inner-content">
                     <h2><%= link_to "#{instrument.name}", instrument_path(instrument) %></h2>
@@ -52,7 +50,7 @@
       <% @instruments.each do |instrument| %>
         <div class="list-item">
           <div class="inner-img">
-            <%= cl_image_tag instrument.photo.key %>
+            <%= cl_image_tag instrument.photos.first.key %>
           </div>
           <div class="inner-content">
             <h2><%= link_to "#{instrument.name}", instrument_path(instrument) %></h2>
