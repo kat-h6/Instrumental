@@ -34,9 +34,12 @@
 
             </ul>
           </div>
-          <div class="menu-wrapper-right">
-          <%= link_to 'Add instrument for rent', new_instrument_path, class: 'btn btn-primary' %>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
+          
+          <div class="navbar-right">
+            <% if current_user %>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete  %>
+              <%= cl_image_tag "#{current_user.photo.key}", gravity: "face", height: 56, width: 56, crop: :fill, class: "avatar" %>
+            <% end %>
           </div>
         </div>
       </div>

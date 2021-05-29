@@ -28,7 +28,7 @@ user_one = User.new(
     last_name: "H",
     age: 25,
     city: "Helsinki",
-    occupation: "student",
+    occupation: "Student",
     about_me: "I play the flute"
     )
 user_one.photo.attach(io: photo_one, filename: 'temp.png', content_type: 'image/png')
@@ -44,7 +44,7 @@ user_two = User.new(
     last_name: "D",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the drums"
     )
 user_two.photo.attach(io: photo_two, filename: 'temp.png', content_type: 'image/png')
@@ -60,7 +60,7 @@ user_three = User.new(
     last_name: "S",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the drums"
     )
 user_three.photo.attach(io: photo_three, filename: 'temp.png', content_type: 'image/png')
@@ -76,7 +76,7 @@ user_four = User.new(
     last_name: "H",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the violin"
     )
 user_four.photo.attach(io: photo_four, filename: 'temp.png', content_type: 'image/png')
@@ -125,7 +125,7 @@ instrument_three = Instrument.new(
     details: 'quarter size student violin for children',
     year: 2010,
     rate: 35,
-    owner: User.first,
+    owner: User.all.sample,
     address: 'Urho Kekkosen katu 1, 00100 Helsinki'
 )
 instrument_three.photo.attach(io: file_three, filename: 'temp.png', content_type: 'image/png')
@@ -140,7 +140,7 @@ instrument_four = Instrument.new(
     details: 'good student trumpet, small dents',
     year: 2009,
     rate: 20,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Mannerheimintie 14–20, 00100 Helsinki'
 )
 instrument_four.photo.attach(io: file_four, filename: 'temp.png', content_type: 'image/png')
@@ -155,7 +155,7 @@ instrument_five = Instrument.new(
     details: 'professional french horn',
     year: 2011,
     rate: 40,
-    owner: User.last,
+    owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
 instrument_five.photo.attach(io: file_five, filename: 'temp.png', content_type: 'image/png')
@@ -170,7 +170,7 @@ instrument_six = Instrument.new(
     year: 2015,
     details: 'nice drums',
     rate: 25,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Rudi-Dutschke-Straße 26, 10969 Berlin, Germany'
 )
 instrument_six.photo.attach(io: file_six, filename: 'temp.png', content_type: 'image/png')
@@ -185,7 +185,7 @@ instrument_seven = Instrument.new(
     details: 'good tuba',
     year: 2009,
     rate: 25,
-    owner: User.first,
+    owner: User.all.sample,
     address: '5333 Avenue Casgrain Suite 102, Montréal, QC H2T 1X3, Canada'
 )
 instrument_seven.photo.attach(io: file_seven, filename: 'temp.png', content_type: 'image/png')
@@ -200,7 +200,7 @@ instrument_nine = Instrument.new(
     details: 'professional flute, split E mechanism',
     year: 2016,
     rate: 60,
-    owner: User.last,
+    owner: User.all.sample,
     address: 'Nervanderinkatu 1300100 Helsinki'
 )
 instrument_nine.photo.attach(io: file_nine, filename: 'temp.png', content_type: 'image/png')
@@ -215,7 +215,7 @@ instrument_eight = Instrument.new(
     details: 'cool drum',
     year: 2009,
     rate: 18,
-    owner: User.first,
+    owner: User.all.sample,
     address: "Carrer d'en Grassot, 101, 08025 Barcelona, Spain"
 )
 instrument_eight.photo.attach(io: file_eight, filename: 'temp.png', content_type: 'image/png')

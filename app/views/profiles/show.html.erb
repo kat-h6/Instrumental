@@ -1,35 +1,43 @@
 <h1 style="text-align:center"><%= @user.first_name %> <%= @user.last_name %></h1>
 <div class="container d-flex mt-4">
 
-  <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @user.photo.key, height: 400, width: 300, crop: :fill %>
   <div class="ml-4">
 
-	    <p>Age: <%= @user.age %></p>
-	    <p>City: <%= @user.city %></p>
-	    <p>Occupation: <%= @user.occupation %></p>
-	    <p>About me: <%= @user.about_me %></p>
+	    <h3>Age: <%= @user.age %></h3>
+	    <h3>City: <%= @user.city %></h3>
+	    <h3>Occupation: <%= @user.occupation %></h3>
+	    <h3>About me: <%= @user.about_me %></h3>
 	    
 	</div>
 </div>
 
-<div class="container mt-4">
-	<p>My instruments</p>
+
+<div class="container">
+  <div class="d-flex">
+	<h1 style="margin-top: 7rem">My instruments</h1>
+  </div>
+	<div class="list-wrapper">
 	<% @user.instruments.each do |instrument| %>
-	    <div class="container d-flex mt-4">
+	<div class="list-item">
+	    <div class="inner-img">
 		  	<%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
+		</div>
 			<div class="row">
 			  	<div class="col-12">
+			  		<div class="inner-content">
 
-				    <p>Category: <%= instrument.category %></p>
-				    <p>Year: <%= instrument.year %></p>
-				    <p>Rate: €<%= instrument.rate %>/day</p>
-				    <p>Address: <%= instrument.address %></p>
-				    <p>Contact: <%= link_to "#{instrument.owner.first_name} #{instrument.owner.last_name}", new_personal_message_path(receiver_id:instrument.owner) %></p>
-
-				    <%= link_to 'Book', new_instrument_booking_path(instrument), class: 'btn btn-success mb-4' %><br>
-				    <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
+			  		<h3><%= instrument.name %></h3>
+				    <h5>Category: <%= instrument.category %></h5>
+				    <h5>Year: <%= instrument.year %></h5>
+				    <h5>Rate: €<%= instrument.rate %>/day</h5>
+				    <h5>Address: <%= instrument.address %></h5>
+				   </div> 
 				</div>
 			</div>
+			</div>
+		<% end %>
 		</div>
-	<% end %>
+	
 </div>
+
