@@ -20,28 +20,17 @@
               <p>Contact: <%= link_to "#{booking.instrument.owner.first_name} #{booking.instrument.owner.last_name}", new_personal_message_path(receiver_id:booking.instrument.owner) %>
               </p>
             </div>
+            <div class="rental-buttons">
             <div class="link">
-              <%= link_to 'Remove', booking_path(booking), method: :delete,
-                  data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
-            </div>
+              <%#= REVIEWS %>
+              <% if booking.end_date < Date.today %>
+              <%= link_to 'Leave a review', new_booking_review_path(booking.id)%>
+            <% end %>
+            <%= link_to 'Remove', booking_path(booking), method: :delete,
+              data: { confirm: "Are you sure you want to delete the booking for #{booking.renter}?" } %>
+          </div>
       </div>
-      <%#= REVIEWS %>
-      <% if booking.end_date < Date.today %>
-        <div class="card">
-            <ul class="list-group">
-                <% booking.reviews.each do |review| %>
-                <li class="list-group-item">
-                    <p><%= review.title %></p>
-                    <%= @star_checked %>
-                    <p><%= review.content %></p>
-                </li>
-                <% end %>
-            </ul>
-            <%= link_to 'Leave a review', new_booking_review_path(booking.id), class: 'btn btn-secondary' %>
-        </div>
-
-      <% end %>
-
+      </div>
     <% end %>
   </div>
   <%= link_to 'Back', root_path, class: 'btn btn-primary' %>

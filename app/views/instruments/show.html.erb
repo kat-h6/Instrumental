@@ -1,3 +1,18 @@
+<%#= AVERAGE REVIEW %>
+<% @total_score = 0 %>
+<% @review_counter = 0 %>
+<% @average_review = 0 %>
+<% @instrument.bookings.each do |booking| %>
+  <% booking.reviews.each do |review| %>
+    <% @total_score = review.rating + @total_score %>
+    <% @review_counter += 1 %>
+  <% end %>
+<% end %>
+<% if @review_counter > 0 %>
+  <% @average_review = @total_score / @review_counter %>
+<% end %>
+<%#= /AVERAGE REVIEW %>
+    
 <%= link_to 'Browse Instruments', instruments_path, class: 'btn btn-primary' %>
 <div class="instrument-show-container">
   <div class="instrument-image">
@@ -31,6 +46,14 @@
   </div>
   <div class="instrument-details">
     <h2 class="mb-4"><%= @instrument.name %> <%= @instrument.model %></h2>
+        <% if @average_review > 0 %>
+      <p style="display: inline"><strong>Average rating: </strong></p>
+      <% @average_review.times do %>
+        <p style="display: inline" class="bi bi-star"></p>
+      <% end %>
+    <% else %>
+      <p><i>No reviews</i></p>
+    <% end %>
     <p><strong>Category: </strong><%= @instrument.category %></p>
     <p><strong>Year: </strong><%= @instrument.year %></p>
     <p><strong>Rate: </strong>€<%= @instrument.rate %>/day</p>
@@ -45,5 +68,31 @@
     </div>
     <%= link_to 'Book', new_instrument_booking_path(@instrument), class: 'btn btn-success mt-4' %><br>
 
+
   </div>
+</div>
+<div class="container">
+
+
+<%#= SHOW REVIEWS %>
+<div class="card" style="margin-top: 20px">
+  <% @instrument.bookings.each do |booking| %>
+    <% booking.reviews.each do |review| %>
+      <div class="card" style="padding: 10px">
+        <div class="card-header" style="display:flex; justify-content: space-between; height: 48px">
+      <%= review.title %>
+      <ul style="padding: 0; list-style-type: none">
+        <% review.rating.times do %>
+          <li style="display: inline" class="bi bi-star"></li>
+        <% end %>
+      </ul>
+      </div>
+      <div class="card-body">
+        <%= review.content %>
+        <footer class="blockquote-footer"><%= review.booking.renter.first_name %></footer>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
 </div>
