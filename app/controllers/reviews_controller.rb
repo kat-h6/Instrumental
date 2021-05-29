@@ -16,8 +16,10 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     @review.save
+    @instrument = @booking.instrument.id
 
-    redirect_to rentals_path
+    
+    redirect_to instrument_path(@instrument)
   end
 
   def destroy
