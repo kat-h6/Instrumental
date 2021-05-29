@@ -28,7 +28,7 @@ user_one = User.new(
     last_name: "H",
     age: 25,
     city: "Helsinki",
-    occupation: "student",
+    occupation: "Student",
     about_me: "I play the flute"
     )
 user_one.photo.attach(io: photo_one, filename: 'temp.png', content_type: 'image/png')
@@ -44,7 +44,7 @@ user_two = User.new(
     last_name: "D",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the drums"
     )
 user_two.photo.attach(io: photo_two, filename: 'temp.png', content_type: 'image/png')
@@ -60,7 +60,7 @@ user_three = User.new(
     last_name: "S",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the drums"
     )
 user_three.photo.attach(io: photo_three, filename: 'temp.png', content_type: 'image/png')
@@ -76,7 +76,7 @@ user_four = User.new(
     last_name: "H",
     age: 25,
     city: "Oslo",
-    occupation: "hard worker",
+    occupation: "Hard worker",
     about_me: "I play the violin"
     )
 user_four.photo.attach(io: photo_four, filename: 'temp.png', content_type: 'image/png')
