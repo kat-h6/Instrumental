@@ -98,7 +98,12 @@
   padding: 0 50px;
   color: grey;
 }
-.category-tag {
+
+.category-tag input[type="radio"] {
+  display: none;
+}
+
+.category-tag label {
   max-width: 110px;
   border-radius: 25px;
   padding: 5px 10px;
@@ -110,7 +115,7 @@
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(22, 127, 251, 0.20) 0px 0px 0px 1px;
 }
 
-.category-tag:hover {
+.category-tag label:hover {
   max-width: 110px;
   border-radius: 25px;
   padding: 5px 10px;
@@ -121,4 +126,21 @@
   background-color: #167FFB;
   text-decoration: none;
   box-shadow: none;
+}
+
+.category-tag input[type="radio"]:checked+label {
+  max-width: 110px;
+  border-radius: 25px;
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #fff;
+  text-align: center;
+  display: inline-flex;
+  background-color: #167FFB;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+label {
+  margin: 0;
 }

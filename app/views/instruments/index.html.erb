@@ -11,14 +11,13 @@
           %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
           </div>
-        <% end %>
-        <div>
-          <% @instruments.each do |instrument| %>
-            <a class="category-tag" href="#">
-              <%= instrument.category %>
-            </a>
+          <% Instrument::CATEGORIES.each do |category| %>
+            <span class="category-tag" role="group" aria-label="Basic radio toggle button group">
+              <%= label_tag "category", category.capitalize %>
+              <%= radio_button_tag "category", category %>
+            </span>
           <% end %>
-        </div>
+        <% end %>
     </div>
 
     <div class="list-count">
