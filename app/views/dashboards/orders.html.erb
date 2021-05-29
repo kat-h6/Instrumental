@@ -7,9 +7,7 @@
     <div class="request">
       <h2>Rental Requests</h2>
         <div class="list-wrapper">
-          <% if @instruments_with_bookings %>
-              <p>You have no rental requests</p>
-            <% else %>
+              <% @instruments.each do |instrument| %>
                 <% instrument.bookings.each do |booking| %>
                   <div class="list-item">
                     <div class="inner-img">
